@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter"/>
+        <listener class-name="org.testng.reporters.FailedReporter"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="login" enabled="true">
+        <parameter name="browser" value="Chrome"></parameter>
+        <classes>
+            <class name="org.pathway.ReadBook"
+            ><methods>
+                <include name="read"/>
+            </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="pathway" enabled="false">
+        <parameter name="browser" value="Chrome"></parameter>
+        <classes>
+            <class name="org.pathway.BookReader"
+            ><methods>
+                <include name="completeLevel"/>
+            </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

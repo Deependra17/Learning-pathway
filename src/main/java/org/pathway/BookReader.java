@@ -8,6 +8,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.*;
 import utils.Configuration;
 import utils.CustomListener;
+import utils.DriverFactory;
 import utils.LoginUtils;
 
 import java.time.Duration;
@@ -15,41 +16,26 @@ import java.util.List;
 
 @Listeners(CustomListener.class)
 public class BookReader {
-    private WebDriver driver = new ChromeDriver();
+    private WebDriver driver;
     LoginUtils loginUtils;
-    public void parentHandle() {
-        driver.switchTo().window(loginUtils.getParentHandle());
-    }
-    //    @BeforeMethod
-//    @Parameters({"browser"})
-//    public void beforeMethod(String browser) {
-//        driver = DriverFactory.build(browser);
-//        loginUtils = new LoginUtils(driver);
-//    }
-    @Test
-    public void completeLevel() throws InterruptedException {
-        loginUtils = new LoginUtils(driver);
-        Configuration config = new Configuration();
-        try {
-            loginUtils.login();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println("User is logged in successfully");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        parentHandle();
-        Thread.sleep(2000);
-        WebElement profile = driver.findElement(By.className(config.getChooseProfile()));
-        profile.click();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath(config.getClickOnHome())).click();
 
+    @BeforeMethod
+    @Parameters({"browser"})
+    public void beforeMethod(String browser) throws InterruptedException {
+        driver = DriverFactory.build(browser);
+        loginUtils = new LoginUtils(driver);
+        loginUtils.login();
+    }
+
+    @Test
+    public void readPathway() throws InterruptedException {
+        Configuration config = new Configuration();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.findElement(By.xpath("//*[@id=\"scrolling_div\"]/div[2]/div/div[2]")).click();
         System.out.println("Click on pathway");
         Thread.sleep(2000);
 
         //driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[2]/div[1]/div/div[3]/button")).click();
-
 
         String firstLevelBooksContainerXPath = "//*[@id=\"singleLevel_aca07030-ac07-4ce7-be39-d48e1c85a49b\"]/div[3]";
         List<WebElement> firstLevelBooks = driver.findElements(By.xpath(firstLevelBooksContainerXPath));
@@ -93,8 +79,8 @@ public class BookReader {
         }
     }
 
-        @AfterMethod
-        public void tearDown(ITestResult result){
+    @AfterMethod
+    public void tearDown(ITestResult result) {
         driver.quit();
     }
 }

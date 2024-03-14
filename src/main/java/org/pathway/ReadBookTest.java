@@ -4,45 +4,34 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import utils.Configuration;
-import utils.CustomListener;
 import utils.DriverFactory;
 import utils.LoginUtils;
 
 import java.time.Duration;
 
-@Listeners(CustomListener.class)
-public class ReadBook {
+public class ReadBookTest {
     private WebDriver driver;
     LoginUtils loginUtils;
-    public void parentHandle() {
-        driver.switchTo().window(loginUtils.getParentHandle());
-    }
+
     @BeforeMethod
     @Parameters({"browser"})
-    public void beforeMethod(String browser) {
+    public void beforeMethod(String browser) throws InterruptedException {
         driver = DriverFactory.build(browser);
         loginUtils = new LoginUtils(driver);
+        loginUtils.login();
+        System.out.println("User logged in Successfully");
     }
+
     @Test
-    public void read() throws InterruptedException {
-     Configuration config= new Configuration();
-        try {
-            loginUtils.login();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println("User is logged in successfully");
+    public void readBook() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        parentHandle();
-        Thread.sleep(2000);
-       WebElement profile= driver.findElement(By.xpath(config.getChooseProfile()));
-        profile.click();
-        System.out.println("Profile is choosed");
-        Thread.sleep(2000);
-        driver.findElement(By.xpath(config.getClickOnHome())).click();
-        WebElement book=driver.findElement(By.xpath(config.getClickOnBook()));
+        Configuration config = new Configuration();
+        WebElement book = driver.findElement(By.xpath(config.getClickOnBook()));
         book.click();
         System.out.println("Book Detail View");
 
@@ -67,7 +56,7 @@ public class ReadBook {
             //Check if it is last page
             if (page == totalNumberOfPages) {
                 // Perform the action to click the "Next" button
-                WebElement button=driver.findElement(By.xpath(config.getCLickOnNextButton()));
+                WebElement button = driver.findElement(By.xpath(config.getCLickOnNextButton()));
                 button.click();
                 System.out.println("Next button clicked");
 
@@ -79,8 +68,9 @@ public class ReadBook {
             }
         }
     }
+
     @AfterMethod
-    public void tearDown(ITestResult result){
+    public void tearDown(ITestResult result) {
         driver.close();
     }
 

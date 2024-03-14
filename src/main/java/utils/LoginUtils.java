@@ -30,7 +30,7 @@ public class LoginUtils {
         Credentials cred = new Credentials();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get(config.getUrl());
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         driver.findElement(By.xpath(config.getToLogin())).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath(config.getClickOnLogin())).click();
@@ -66,7 +66,6 @@ public class LoginUtils {
         passwordField.sendKeys(Keys.ENTER);
 
         driver.switchTo().window(parentHandle);
-        Thread.sleep(2000);
         WebElement profile = driver.findElement(By.xpath(config.getChooseProfile()));
         profile.click();
         System.out.println("Profile is choosed");

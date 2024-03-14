@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="All Test Suite" parallel="tests" >
     <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter2"/>
         <listener class-name="org.testng.reporters.FailedReporter"/>
     </listeners>
     <test verbose="2" preserve-order="true" name="pathway" enabled="false">
@@ -28,6 +29,17 @@
     </test>
     <test verbose="2" preserve-order="true" name="Login" enabled="true">
         <parameter name="browser" value="Chrome"></parameter>
+        <classes>
+            <class name="org.pathway.ReadBookTest"
+            >
+                <methods>
+                    <include name="readBook"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="Login on Firefox" enabled="true" parallel="true" >
+        <parameter name="browser" value="FireFox"></parameter>
         <classes>
             <class name="org.pathway.ReadBookTest"
             >

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
+<suite parallel="tests" name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
   <listeners>
+    <listener class-name="org.testng.reporters.EmailableReporter2"/>
     <listener class-name="org.testng.reporters.FailedReporter"/>
   </listeners>
-  <test thread-count="5" name="Login(failed)">
-    <parameter name="browser" value="Chrome"/>
+  <test thread-count="5" parallel="methods" name="Login on Firefox(failed)">
+    <parameter name="browser" value="FireFox"/>
     <classes>
       <class name="org.pathway.ReadBookTest">
         <methods>
@@ -15,5 +16,5 @@
         </methods>
       </class> <!-- org.pathway.ReadBookTest -->
     </classes>
-  </test> <!-- Login(failed) -->
+  </test> <!-- Login on Firefox(failed) -->
 </suite> <!-- Failed suite [All Test Suite] -->

@@ -1,52 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" parallel="tests" >
-    <listeners>
-        <listener class-name="org.testng.reporters.EmailableReporter2"/>
-        <listener class-name="org.testng.reporters.FailedReporter"/>
-    </listeners>
-    <test verbose="2" preserve-order="true" name="pathway" enabled="false">
-        <parameter name="browser" value="Chrome"></parameter>
-        <classes>
-            <class name="org.pathway.BookReader"
-            >
-                <methods>
-                    <include name="completeLevel"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test verbose="2" preserve-order="true" name="pathway" enabled="false">
-        <parameter name="browser" value="Chrome"></parameter>
-        <classes>
-            <class name="org.pathway.VerifyBookName"
-            >
-                <methods>
-                    <include name="readPathway"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test verbose="2" preserve-order="true" name="Login" enabled="true">
-        <parameter name="browser" value="Chrome"></parameter>
-        <classes>
-            <class name="org.pathway.ReadBookTest"
-            >
-                <methods>
-                    <include name="readBook"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test verbose="2" preserve-order="true" name="Login on Firefox" enabled="true" parallel="true" >
-        <parameter name="browser" value="FireFox"></parameter>
-        <classes>
-            <class name="org.pathway.ReadBookTest"
-            >
-                <methods>
-                    <include name="readBook"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+<suite name="Master Suite">
+    <!-- Login Suite -->
+
+    <suite-files>
+        <!-- Include login suite -->
+<!--        <suite-file path="test-suite-files/readBook-suite.xml"/>-->
+        <suite-file path="test-suite-files/loginTest-suite.xml"/>
+<!--        <suite-file path="test-suite-files/brokenLink-suite.xml"/>-->
+
+    </suite-files>
 </suite>

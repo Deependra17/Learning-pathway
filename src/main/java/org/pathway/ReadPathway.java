@@ -3,7 +3,6 @@ package org.pathway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import utils.Configuration;
@@ -15,7 +14,7 @@ import java.time.Duration;
 import java.util.List;
 
 @Listeners(CustomListener.class)
-public class BookReader {
+public class ReadPathway {
     private WebDriver driver;
     LoginUtils loginUtils;
 
@@ -77,6 +76,7 @@ public class BookReader {
 
             }
         }
+        
     }
 
     @AfterMethod

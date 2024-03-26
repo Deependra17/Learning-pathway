@@ -71,6 +71,14 @@ public class Configuration {
         return CloseButton;
     }
 
+    public String getInvalidUserName() {
+        return InvalidUserName;
+    }
+
+    public String getInvalidPassword() {
+        return InvalidPassword;
+    }
+
     private String Url;
     private String ToLogin;
     private String ClickOnLogin;
@@ -87,6 +95,8 @@ public class Configuration {
     private String SecondNextButton;
     private String Activity;
     private String CloseButton;
+    private String InvalidUserName;
+    private String InvalidPassword;
 
     public Configuration() {
 
@@ -112,6 +122,8 @@ public class Configuration {
             this.SecondNextButton = prop.getProperty("SecondNextButton");
             this.Activity = prop.getProperty("Activity");
             this.CloseButton = prop.getProperty("CloseButton");
+            this.InvalidUserName=prop.getProperty("InvalidUserName");
+            this.InvalidPassword=prop.getProperty("InvalidPassword");
 
         } catch (
                 IOException ex) {

@@ -8,13 +8,12 @@
   <test thread-count="5" parallel="tests" name="Login with Chrome(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="org.pathway.ReadBookTest">
+      <class name="logintest.LoginTest">
         <methods>
-          <include name="beforeMethod"/>
-          <include name="readBook"/>
-          <include name="tearDown"/>
+          <include name="loginTestWithValidCredentials" invocation-numbers="0"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- org.pathway.ReadBookTest -->
+      </class> <!-- logintest.LoginTest -->
     </classes>
   </test> <!-- Login with Chrome(failed) -->
 </suite> <!-- Failed suite [Login Suite] -->

@@ -1,4 +1,4 @@
-package health;
+package jyotish;
 
 
 import io.restassured.RestAssured;

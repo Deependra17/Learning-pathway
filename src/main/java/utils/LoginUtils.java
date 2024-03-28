@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.Set;
 
 public class LoginUtils {
@@ -30,7 +31,14 @@ public class LoginUtils {
         Credentials cred = new Credentials();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get(config.getUrl());
-//        driver.manage().window().maximize();
+        driver.manage().window().maximize();
+        List<WebElement> x = driver.findElements(By.tagName("a"));
+// To find the count of the link
+        System.out.println(x.size());
+// To print all links
+        for (WebElement x1 : x) {
+            System.out.println(x1.getAttribute("href"));
+        }
         driver.findElement(By.xpath(config.getToLogin())).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath(config.getClickOnLogin())).click();

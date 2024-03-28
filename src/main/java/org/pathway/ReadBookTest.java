@@ -22,7 +22,7 @@ public class ReadBookTest {
         driver = DriverFactory.build(browser);
         loginUtils = new LoginUtils(driver);
         loginUtils.login();
-        System.out.println("User logged in Successfully");
+        System.out.println("User logged in Successfully");  
     }
 
     @Test

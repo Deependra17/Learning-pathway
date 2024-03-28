@@ -17,7 +17,7 @@ public class BrokenLinks {
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("useAutomationExtension", false);
         driver = new ChromeDriver(options);
-        driver.get("https://reader-dot-lets-read-dev.uc.r.appspot.com/"); // Open the website
+        driver.get("https://jyotishsewa.alpha.hamrostack.com/"); // Open the website
 
         // List to store extracted URLs
         List<String> urls = new ArrayList<>(); // Replace with your logic to populate URLs

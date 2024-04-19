@@ -5,9 +5,10 @@
 
     <suite-files>
         <!-- Include login suite -->
-<!--        <suite-file path="test-suite-files/readBook-suite.xml"/>-->
+        <suite-file path="test-suite-files/readBook-suite.xml"/>
         <suite-file path="test-suite-files/loginTest-suite.xml"/>
-<!--        <suite-file path="test-suite-files/brokenLink-suite.xml"/>-->
+        <suite-file path="test-suite-files/pdf-suite.xml"/>
+        <suite-file path="test-suite-files/brokenLink-suite.xml"/>
 
     </suite-files>
 </suite>

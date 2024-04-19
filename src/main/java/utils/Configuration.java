@@ -1,83 +1,14 @@
 package utils;
 
+import lombok.Getter;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+@Getter
 public class Configuration {
-
-    public String getUrl() {
-        return Url;
-    }
-
-    public String getToLogin() {
-        return ToLogin;
-    }
-
-    public String getClickOnLogin() {
-        return ClickOnLogin;
-    }
-
-    public String getEmailInput() {
-        return EmailInput;
-    }
-
-    public String getPasswordInput() {
-        return PasswordInput;
-    }
-
-    public String getContinueWithGoogle() {
-        return ContinueWithGoogle;
-    }
-
-    public String getChooseProfile() {
-        return ChooseProfile;
-    }
-
-    public String getClickOnHome() {
-        return ClickOnHome;
-    }
-
-    public String getClickOnBook() {
-        return ClickOnBook;
-    }
-
-    public String getTurnPage() {
-        return TurnPage;
-    }
-
-    public String getClickOnReadButton() {
-        return ClickOnReadButton;
-    }
-
-    public String getPageContent() {
-        return PageContent;
-    }
-
-    public String getCLickOnNextButton() {
-        return CLickOnNextButton;
-    }
-
-    public String getSecondNextButton() {
-        return SecondNextButton;
-    }
-
-    public String getActivity() {
-        return Activity;
-    }
-
-    public String getCloseButton() {
-        return CloseButton;
-    }
-
-    public String getInvalidUserName() {
-        return InvalidUserName;
-    }
-
-    public String getInvalidPassword() {
-        return InvalidPassword;
-    }
 
     private String Url;
     private String ToLogin;

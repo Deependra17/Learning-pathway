@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Pdf generation ]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="org.testng.reporters.EmailableReporter2"/>
+    <listener class-name="org.testng.reporters.FailedReporter"/>
+  </listeners>
+  <test thread-count="5" parallel="tests" name="Test with Chrome(failed)">
+    <parameter name="browser" value="Chrome"/>
+    <classes>
+      <class name="generatePdf.PDFValidationTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testPDFValidation"/>
+        </methods>
+      </class> <!-- generatePdf.PDFValidationTest -->
+    </classes>
+  </test> <!-- Test with Chrome(failed) -->
+</suite> <!-- Failed suite [Pdf generation ] -->

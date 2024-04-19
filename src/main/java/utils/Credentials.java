@@ -1,18 +1,13 @@
 package utils;
 
+import lombok.Getter;
 import org.apache.poi.ss.usermodel.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 
+@Getter
 public class Credentials {
-    public String getUsername() {
-        return Username;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
 
     private String Username;
     private String Password;

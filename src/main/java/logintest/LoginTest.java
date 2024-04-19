@@ -26,6 +26,11 @@ public class LoginTest {
         loginUtils.login();
         Assert.assertEquals(driver.getTitle(), "Let's Read | Children's Books | Free to Read Download Translate");
         System.out.println("User logged in Successfully");
+
+        String expectedTitle= "Let's Read | Children's Books | Free to Read Download Translate";
+        String actualTitle= driver.getTitle();
+        System.out.println("Actual Title: "+actualTitle);
+        Assert.assertEquals(actualTitle,expectedTitle, "Title does not match");
     }
 
     @Test

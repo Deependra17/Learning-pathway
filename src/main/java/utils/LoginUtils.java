@@ -1,5 +1,6 @@
 package utils;
 
+import lombok.Getter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -9,16 +10,9 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 
+@Getter
 public class LoginUtils {
     private final WebDriver driver;
-
-    public WebDriver getDriver() {
-        return driver;
-    }
-
-    public String getParentHandle() {
-        return parentHandle;
-    }
 
     private String parentHandle;
 

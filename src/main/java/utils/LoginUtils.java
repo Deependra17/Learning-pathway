@@ -1,10 +1,10 @@
 package utils;
 
 import lombok.Getter;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
@@ -25,6 +25,7 @@ public class LoginUtils {
         Credentials cred = new Credentials();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get(config.getUrl());
+        driver.navigate().refresh();
         driver.manage().window().maximize();
         List<WebElement> x = driver.findElements(By.tagName("a"));
 // To find the count of the link
@@ -74,8 +75,23 @@ public class LoginUtils {
         passwordField.sendKeys(Keys.ENTER);
 
         driver.switchTo().window(parentHandle);
+        Thread.sleep(5000);
         WebElement profile = driver.findElement(By.xpath(config.getChooseProfile()));
-        profile.click();
+        try {
+            profile.click();
+        } catch (StaleElementReferenceException e) {
+            // Handle StaleElementReferenceException
+            System.out.println("Element reference is stale. Retrying click...");
+            // Refresh the element reference and retry click
+            profile = driver.findElement(By.xpath(config.getChooseProfile()));
+            profile.click();
+        } catch (ElementClickInterceptedException e) {
+            // Handle ElementClickInterceptedException
+            System.out.println("Element click intercepted. Retrying click...");
+            // Wait for some time and retry click
+            Thread.sleep(2000); // Adjust the wait time as needed
+            profile.click();
+        }
         System.out.println("Profile is Chosen");
         Thread.sleep(2000);
         driver.findElement(By.xpath(config.getClickOnHome())).click();
@@ -84,9 +100,9 @@ public class LoginUtils {
 
     public void loginWithInvalidCredentials() throws InterruptedException {
         Configuration config = new Configuration();
+        Credentials cred = new Credentials();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get(config.getUrl());
-//        driver.manage().window().maximize();
         driver.findElement(By.xpath(config.getToLogin())).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath(config.getClickOnLogin())).click();
@@ -114,14 +130,14 @@ public class LoginUtils {
             }
         }
         WebElement usernameField = driver.findElement(By.xpath(config.getEmailInput()));
-        usernameField.sendKeys(config.getInvalidUserName());
+        usernameField.sendKeys(cred.getUsername());
         usernameField.sendKeys(Keys.ENTER);
 
-
-//        WebElement passwordField = driver.findElement(By.xpath(config.getPasswordInput()));
-//        passwordField.sendKeys(config.getInvalidPassword());
-//        passwordField.sendKeys(Keys.ENTER);
-
+        WebElement passwordField = driver.findElement(By.xpath(config.getPasswordInput()));
+        passwordField.sendKeys(config.getInvalidPassword());
+        System.out.println(config.getInvalidPassword());
+        passwordField.sendKeys(Keys.ENTER);
+        Thread.sleep(5000);
 
     }
 

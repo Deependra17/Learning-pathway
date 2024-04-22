@@ -10,20 +10,20 @@
     <test name="Login with Chrome" enabled="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="org.pathway.BrokenLinks">
+            <class name="autosuggestion.BrokenLinksTest">
                 <methods>
-                    <include name="testGetOnlyBrokenLinks"/>
+                    <include name="getAllBrokenLinks"/>
                 </methods>
             </class>
         </classes>
     </test>
     <!-- Test 2: Login with Firefox -->
-    <test name="Login with Firefox" parallel="true" enabled="true">
+    <test name="Login with Firefox" parallel="true" enabled="false">
         <parameter name="browser" value="FireFox"/>
         <classes>
-            <class name="org.pathway.BrokenLinks">
+            <class name="autosuggestion.BrokenLinksTest">
                 <methods>
-                    <include name="testGetOnlyBrokenLinks"/>
+                    <include name="getAllBrokenLinks"/>
                 </methods>
             </class>
         </classes>

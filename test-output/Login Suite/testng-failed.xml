@@ -5,15 +5,15 @@
     <listener class-name="org.testng.reporters.EmailableReporter2"/>
     <listener class-name="org.testng.reporters.FailedReporter"/>
   </listeners>
-  <test thread-count="5" parallel="tests" name="Login with Chrome(failed)">
+  <test thread-count="5" parallel="methods" name="InvalidLogin with Chrome(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
       <class name="logintest.LoginTest">
         <methods>
-          <include name="loginTestWithValidCredentials" invocation-numbers="0"/>
+          <include name="loginTestWithInvalidPassword" invocation-numbers="0"/>
           <include name="afterMethod"/>
         </methods>
       </class> <!-- logintest.LoginTest -->
     </classes>
-  </test> <!-- Login with Chrome(failed) -->
+  </test> <!-- InvalidLogin with Chrome(failed) -->
 </suite> <!-- Failed suite [Login Suite] -->

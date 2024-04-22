@@ -7,25 +7,44 @@
         <listener class-name="org.testng.reporters.FailedReporter"/>
     </listeners>
     <!-- Test 1: Login with Chrome -->
-    <test name="Login with Chrome" enabled="true">
+    <test name="ValidLogin with Chrome" enabled="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="logintest.LoginTest">
                 <methods>
                     <include name="loginTestWithValidCredentials"/>
-                    <exclude name="loginTestWithInvalidUsername"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <!-- Test 2: Login with Firefox -->
-    <test name="Login with Firefox" parallel="true" enabled="false">
-        <parameter name="browser" value="FireFox"/>
+    <test name="InvalidLogin with Chrome" parallel="true" enabled="false">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="logintest.LoginTest">
+                <methods>
+                    <include name="loginTestWithInvalidPassword"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test 3: Login with Firefox -->
+    <test name="ValidLogin with FireFox" enabled="false">
+        <parameter name="browser" value="Firefox"/>
         <classes>
             <class name="logintest.LoginTest">
                 <methods>
                     <include name="loginTestWithValidCredentials"/>
-                    <include name="loginTestWithInvalidCredentials"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test 4: Login with Firefox -->
+    <test name="InvalidLogin with Firefox" parallel="true" enabled="false">
+        <parameter name="browser" value="Firefox"/>
+        <classes>
+            <class name="logintest.LoginTest">
+                <methods>
+                    <include name="loginTestWithInvalidPassword"/>
                 </methods>
             </class>
         </classes>

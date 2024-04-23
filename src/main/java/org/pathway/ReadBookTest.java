@@ -22,7 +22,7 @@ public class ReadBookTest {
         driver = DriverFactory.build(browser);
         loginUtils = new LoginUtils(driver);
         loginUtils.login();
-        System.out.println("User logged in Successfully");  
+        System.out.println("User logged in Successfully");
     }
 
     @Test
@@ -76,13 +76,16 @@ public class ReadBookTest {
 
 
         WebElement closeButton = driver.findElement(By.xpath(config.getCloseButton()));
+        closeButton.click();
         Thread.sleep(4000);
         System.out.println("Text book completed Successfully");
     }
 
     @AfterMethod
     public void tearDown(ITestResult result) {
-        driver.close();
+        if (driver != null) {
+            driver.close();
+        }
     }
 
 }

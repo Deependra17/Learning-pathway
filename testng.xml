@@ -1,13 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Master Suite">
-    <!-- Login Suite -->
-
-    <suite-files>
-        <!-- Include login suite -->
-        <suite-file path="test-suite-files/readBook-suite.xml"/>
-        <suite-file path="test-suite-files/loginTest-suite.xml"/>
-        <suite-file path="test-suite-files/brokenLink-suite.xml"/>
-
-    </suite-files>
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter2"/>
+        <listener class-name="org.testng.reporters.FailedReporter"/>
+    </listeners>
+    <test verbose="2" name="Broken link test" thread-count="3" enabled="false"
+          allow-return-values="true">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="autosuggestion.BrokenLinksTest">
+                <methods>
+                    <include name="getAllBrokenLinks"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+        <test verbose="2" name="LoginTest" thread-count="3" enabled="false"
+        allow-return-values="true" >
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="login.LoginTest">
+                <methods>
+                    <include name="loginTestWithValidCredentials"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" name="ReadBookTest" thread-count="3" enabled="true"
+          allow-return-values="true">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="org.pathway.ReadBookTest">
+                <methods>
+                    <include name="readBook"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>

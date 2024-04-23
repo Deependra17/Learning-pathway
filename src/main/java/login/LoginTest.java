@@ -1,4 +1,4 @@
-package logintest;
+package login;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -72,7 +72,7 @@ public class LoginTest {
     @AfterMethod
     public void afterMethod() {
         if (driver != null) {
-            driver.quit();
+            driver.close();
         }
     }
 }

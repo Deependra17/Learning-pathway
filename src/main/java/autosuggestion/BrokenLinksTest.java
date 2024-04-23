@@ -3,6 +3,7 @@ package autosuggestion;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utils.DriverFactory;
@@ -42,8 +43,11 @@ public class BrokenLinksTest {
                 }
             }
         }
-
-        // Close the browser
-        driver.quit();
+    }
+    @AfterMethod
+    public void tearDown(){
+        if(driver !=null) {
+            driver.close();
+        }
     }
 }

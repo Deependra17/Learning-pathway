@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <!-- Login Suite -->
-<suite name="Login Suite" parallel="tests">
+<suite name="Search Suite" parallel="tests">
     <listeners>
         <listener class-name="org.testng.reporters.EmailableReporter2"/>
         <listener class-name="org.testng.reporters.FailedReporter"/>
     </listeners>
     <!-- Test 1: Login with Chrome -->
-    <test name="BrokenLinkTest" enabled="true">
+    <test name="Search Book by name with Chrome" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="autosuggestion.BrokenLinksTest">
+            <class name="search.SearchFunctionalityTest">
                 <methods>
-                    <include name="getAllBrokenLinks"/>
+                    <include name="searchByName"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <!-- Test 2: Login with Firefox -->
-    <test name="BrokenLinkTest with Firefox" parallel="true" enabled="false">
-        <parameter name="browser" value="FireFox"/>
+    <test name="Empty search with Chrome" enabled="true">
+        <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="autosuggestion.BrokenLinksTest">
+            <class name="search.EmptySearchTest">
                 <methods>
-                    <include name="getAllBrokenLinks"/>
+                    <include name="emptySearchTest"/>
                 </methods>
             </class>
         </classes>

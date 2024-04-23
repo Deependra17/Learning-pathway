@@ -28,6 +28,7 @@ public class Configuration {
     private String CloseButton;
     private String InvalidUserName;
     private String InvalidPassword;
+    private String inputField;
 
     public Configuration() {
 
@@ -55,6 +56,7 @@ public class Configuration {
             this.CloseButton = prop.getProperty("CloseButton");
             this.InvalidUserName=prop.getProperty("InvalidUserName");
             this.InvalidPassword=prop.getProperty("InvalidPassword");
+            this.inputField= prop.getProperty("inputField");
 
         } catch (
                 IOException ex) {

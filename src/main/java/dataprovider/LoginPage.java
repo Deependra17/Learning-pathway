@@ -7,10 +7,10 @@ import utils.Configuration;
 public class LoginPage extends BasePage {
     Configuration config = new Configuration();
 
-    private By usernameInput = By.id(config.getCLickOnNextButton());
-    private By passwordInput = By.id(config.getPasswordInput());
-    private By loginButton = By.cssSelector("button[type='submit']");
-    private By successMessage = By.cssSelector("#flash.success");
+    private final By usernameInput = By.id(config.getCLickOnNextButton());
+    private final By passwordInput = By.id(config.getPasswordInput());
+    private final By loginButton = By.cssSelector("button[type='submit']");
+    private final By successMessage = By.cssSelector("#flash.success");
 
     public LoginPage(WebDriver driver) {
         super(driver);

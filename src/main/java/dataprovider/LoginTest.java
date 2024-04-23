@@ -26,7 +26,7 @@ public class LoginTest {
     @DataProvider(name = "loginData")
     public Object[][] getLoginData() {
         return new Object[][] {
-                {"test_user", "password123", "Welcome, test_user!"},
+                {"dbohara@hamropatro.com", "password123", "Welcome, test_user!"},
                 {"admin", "admin123", "Welcome, admin!"}
                 // Add more test data as needed
         };

@@ -76,12 +76,14 @@ public class ReadPathway {
 
             }
         }
-        
+
     }
 
     @AfterMethod
     public void tearDown(ITestResult result) {
-        driver.quit();
+        if (driver != null) {
+            driver.close();
+        }
     }
 }
 

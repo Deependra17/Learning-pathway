@@ -29,9 +29,12 @@ public class LoginUtils {
         List<WebElement> x = driver.findElements(By.tagName("a"));
 // To find the count of the link
         System.out.println(x.size());
-        driver.findElement(By.xpath(config.getToLogin())).click();
+
+        WebElement loginButton = driver.findElement(By.xpath(config.getToLogin()));
+        loginButton.click();
         Thread.sleep(2000);
-        driver.findElement(By.xpath(config.getClickOnLogin())).click();
+        WebElement clickToButton= driver.findElement(By.xpath(config.getClickOnLogin()));
+        clickToButton.click();
 
         this.parentHandle = driver.getWindowHandle();
         System.out.println("Parent window - " + parentHandle);

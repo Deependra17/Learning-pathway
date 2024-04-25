@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -12,11 +13,11 @@ import utils.Configuration;
 import utils.DriverFactory;
 import utils.LoginUtils;
 
-import java.util.List;
 
-public class EmptySearchTest {
+public class SqlInjectionTest {
 
     LoginUtils loginUtils;
+
     private WebDriver driver;
 
     @BeforeMethod
@@ -28,22 +29,20 @@ public class EmptySearchTest {
     }
 
     @Test
-    public void emptySearch() throws InterruptedException {
+    public void securityTest() throws InterruptedException {
         utils.Configuration config = new Configuration();
         WebElement search = driver.findElement(By.xpath(config.getInputField()));
-        search.sendKeys(" ");
+        search.sendKeys("' OR '1'='1");
+        Thread.sleep(2000);
         search.sendKeys(Keys.ENTER);
         Thread.sleep(5000);
-
-        List<WebElement> bookElements = driver.findElements(By.xpath(config.getBookElements()));
-        int bookCount = bookElements.size();
-
-        System.out.println("Total count of books: " + bookCount);
-        System.out.println("Book Names:");
-        for (WebElement bookElement : bookElements) {
-            String bookName = bookElement.getText();
-            System.out.println(bookName);
+        WebElement errorMessage = driver.findElement(By.xpath(config.getErrorMessage()));
+        if (errorMessage.isDisplayed()) {
+            Assert.assertTrue(true, "Error message is displayed");
+        } else {
+            Assert.fail("Error message not displayed");
         }
+
     }
 
     @AfterMethod

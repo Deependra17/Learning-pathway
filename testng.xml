@@ -20,7 +20,7 @@
         allow-return-values="true" >
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="login.LoginTest">
+            <class name="login.ValidLoginTest">
                 <methods>
                     <include name="loginTestWithValidCredentials"/>
                 </methods>

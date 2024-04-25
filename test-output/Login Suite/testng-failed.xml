@@ -5,16 +5,16 @@
     <listener class-name="org.testng.reporters.EmailableReporter2"/>
     <listener class-name="org.testng.reporters.FailedReporter"/>
   </listeners>
-  <test thread-count="5" parallel="tests" name="BookReadTest with Chrome(failed)">
+  <test thread-count="5" parallel="tests" name="ValidLogin with Chrome(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="org.pathway.ReadBookTest">
+      <class name="login.ValidLoginTest">
         <methods>
+          <include name="afterMethod"/>
+          <include name="loginTestWithValidCredentials"/>
           <include name="beforeMethod"/>
-          <include name="readBook"/>
-          <include name="tearDown"/>
         </methods>
-      </class> <!-- org.pathway.ReadBookTest -->
+      </class> <!-- login.ValidLoginTest -->
     </classes>
-  </test> <!-- BookReadTest with Chrome(failed) -->
+  </test> <!-- ValidLogin with Chrome(failed) -->
 </suite> <!-- Failed suite [Login Suite] -->

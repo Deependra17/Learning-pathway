@@ -8,12 +8,12 @@
   <test thread-count="5" parallel="tests" name="ValidLogin with Chrome(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="login.LoginTest">
+      <class name="login.ValidLoginTest">
         <methods>
           <include name="loginTestWithValidCredentials" invocation-numbers="0"/>
           <include name="afterMethod"/>
         </methods>
-      </class> <!-- login.LoginTest -->
+      </class> <!-- login.ValidLoginTest -->
     </classes>
   </test> <!-- ValidLogin with Chrome(failed) -->
 </suite> <!-- Failed suite [Login Suite (0)] -->

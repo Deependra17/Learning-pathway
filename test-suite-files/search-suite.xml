@@ -1,28 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <!-- Login Suite -->
-<suite name="Search Suite" parallel="tests">
+<suite name="Search Suite">
     <listeners>
         <listener class-name="org.testng.reporters.EmailableReporter2"/>
         <listener class-name="org.testng.reporters.FailedReporter"/>
     </listeners>
     <!-- Test 1: Login with Chrome -->
-    <test name="Search Book by name with Chrome" enabled="false">
+    <test name="Search Book by name with Chrome" enabled="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="search.SearchFunctionalityTest">
+            <class name="search.SearchByNameTest">
                 <methods>
                     <include name="searchByName"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="Empty search with Chrome" enabled="true">
+    <test name="Empty search with Chrome" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="search.EmptySearchTest">
                 <methods>
-                    <include name="emptySearchTest"/>
+                    <include name="emptySearch"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Invalid search with Chrome" enabled="false">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="search.SearchSpecialCharactersTest">
+                <methods>
+                    <include name="searchWithSpecialCharacter"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Text length boundary search with Chrome" enabled="false">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="search.SqlInjectionTest">
+                <methods>
+                    <include name="securityTest"/>
                 </methods>
             </class>
         </classes>

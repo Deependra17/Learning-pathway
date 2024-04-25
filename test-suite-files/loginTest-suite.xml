@@ -10,7 +10,7 @@
     <test name="ValidLogin with Chrome" enabled="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="login.LoginTest">
+            <class name="login.ValidLoginTest">
                 <methods>
                     <include name="loginTestWithValidCredentials"/>
                 </methods>
@@ -20,7 +20,7 @@
     <test name="InvalidLogin with Chrome" parallel="true" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="login.LoginTest">
+            <class name="login.InvalidLoginTest">
                 <methods>
                     <include name="loginTestWithInvalidPassword"/>
                 </methods>
@@ -31,7 +31,7 @@
     <test name="ValidLogin with FireFox" enabled="false">
         <parameter name="browser" value="Firefox"/>
         <classes>
-            <class name="login.LoginTest">
+            <class name="login.ValidLoginTest">
                 <methods>
                     <include name="loginTestWithValidCredentials"/>
                 </methods>
@@ -42,7 +42,7 @@
     <test name="InvalidLogin with Firefox" parallel="true" enabled="false">
         <parameter name="browser" value="Firefox"/>
         <classes>
-            <class name="login.LoginTest">
+            <class name="login.InvalidLoginTest">
                 <methods>
                     <include name="loginTestWithInvalidPassword"/>
                 </methods>

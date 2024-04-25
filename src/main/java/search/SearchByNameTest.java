@@ -15,7 +15,7 @@ import utils.LoginUtils;
 
 import java.util.List;
 
-public class SearchFunctionalityTest {
+public class SearchByNameTest {
 
     LoginUtils loginUtils;
     private WebDriver driver;
@@ -28,23 +28,29 @@ public class SearchFunctionalityTest {
         loginUtils.login();
     }
 
-    @Test
-
+    @Test()
     public void searchByName() throws InterruptedException {
         utils.Configuration config = new Configuration();
+        long startTime = System.currentTimeMillis();
 
         WebElement search = driver.findElement(By.xpath(config.getInputField()));
         search.sendKeys("My Body");
         search.sendKeys(Keys.ENTER);
+        long endTime = System.currentTimeMillis();
+
+        // Calculate response time
+        long responseTime = endTime - startTime;
+        System.out.println("Response Time: " + responseTime + " ms");
         Thread.sleep(5000);
+        // Record end time
 
         String expectedName = "My Body";
-        String actualName = driver.findElement(By.xpath("/html/body/div/div/div[3]/div/div[7]/div[2]")).getText();
+        String actualName = driver.findElement(By.xpath(config.getBookName())).getText();
         Assert.assertEquals(actualName, expectedName, "Book name does not match");
         Thread.sleep(5000);
 
 
-        List<WebElement> bookElements = driver.findElements(By.xpath("//div[@class='AllBooksGrid_BooksContainer__43ZZb']"));
+        List<WebElement> bookElements = driver.findElements(By.xpath(config.getBookElements()));
         int bookCount = bookElements.size();
 
         System.out.println("Total count of books: " + bookCount);

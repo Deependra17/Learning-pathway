@@ -29,6 +29,9 @@ public class Configuration {
     private String InvalidUserName;
     private String InvalidPassword;
     private String inputField;
+    private String bookName;
+    private String bookElements;
+    private String errorMessage;
 
     public Configuration() {
 
@@ -57,6 +60,9 @@ public class Configuration {
             this.InvalidUserName=prop.getProperty("InvalidUserName");
             this.InvalidPassword=prop.getProperty("InvalidPassword");
             this.inputField= prop.getProperty("inputField");
+            this.bookName= prop.getProperty("bookName");
+            this.bookElements= prop.getProperty("bookElements");
+            this.errorMessage= prop.getProperty("errorMessage");
 
         } catch (
                 IOException ex) {

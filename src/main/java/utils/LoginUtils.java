@@ -2,9 +2,6 @@ package utils;
 
 import lombok.Getter;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
@@ -33,7 +30,7 @@ public class LoginUtils {
         WebElement loginButton = driver.findElement(By.xpath(config.getToLogin()));
         loginButton.click();
         Thread.sleep(2000);
-        WebElement clickToButton= driver.findElement(By.xpath(config.getClickOnLogin()));
+        WebElement clickToButton = driver.findElement(By.xpath(config.getClickOnLogin()));
         clickToButton.click();
 
         this.parentHandle = driver.getWindowHandle();

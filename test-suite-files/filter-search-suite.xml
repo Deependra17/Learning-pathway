@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- Login Suite -->
+<suite name="Filter Search" thread-count="2" >
+    <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter2"/>
+        <listener class-name="org.testng.reporters.FailedReporter"/>
+    </listeners>
+    <!-- Test 1: Login with Chrome -->
+    <test name="Search By Category with Chrome" enabled="false">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="filtersearch.bycategory.SearchByCategoryTest">
+                <methods>
+                    <include name="bookSearchByCategoryTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Search By Category with Level" enabled="false">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="filtersearch.bycategory.SearchBookByCategoryWithLevelTest">
+                <methods>
+                    <include name="searchBookByCategoryWithLevel"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Search By Category by language" enabled="true">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="filtersearch.bycategory.SearchBookByLanguageAndCategoryTest">
+                <methods>
+                    <include name="bookSearchByLanguage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

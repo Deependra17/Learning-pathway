@@ -232,6 +232,11 @@
             <version>1.8.3</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.xbean</groupId>
+            <artifactId>xbean-reflect</artifactId>
+            <version>3.7</version>
+        </dependency>
 
     </dependencies>
 

@@ -13,6 +13,8 @@ import utils.Configuration;
 import utils.DriverFactory;
 import utils.LoginUtils;
 
+import java.time.Duration;
+
 public class SearchSpecialCharactersTest {
     LoginUtils loginUtils;
 
@@ -28,6 +30,7 @@ public class SearchSpecialCharactersTest {
 
     @Test
     public void searchWithSpecialCharacter() throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         utils.Configuration config = new Configuration();
         WebElement search = driver.findElement(By.xpath(config.getInputField()));
         search.sendKeys("@#jdfskh%$");

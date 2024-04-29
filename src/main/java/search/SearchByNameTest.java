@@ -13,6 +13,7 @@ import utils.Configuration;
 import utils.DriverFactory;
 import utils.LoginUtils;
 
+import java.time.Duration;
 import java.util.List;
 
 public class SearchByNameTest {
@@ -30,6 +31,7 @@ public class SearchByNameTest {
 
     @Test()
     public void searchByName() throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         utils.Configuration config = new Configuration();
         long startTime = System.currentTimeMillis();
 

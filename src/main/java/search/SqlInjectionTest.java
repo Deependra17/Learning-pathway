@@ -13,6 +13,8 @@ import utils.Configuration;
 import utils.DriverFactory;
 import utils.LoginUtils;
 
+import java.time.Duration;
+
 
 public class SqlInjectionTest {
 
@@ -30,6 +32,7 @@ public class SqlInjectionTest {
 
     @Test
     public void securityTest() throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         utils.Configuration config = new Configuration();
         WebElement search = driver.findElement(By.xpath(config.getInputField()));
         search.sendKeys("' OR '1'='1");

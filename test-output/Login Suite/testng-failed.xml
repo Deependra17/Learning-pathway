@@ -4,13 +4,14 @@
   <listeners>
     <listener class-name="org.testng.reporters.EmailableReporter2"/>
     <listener class-name="org.testng.reporters.FailedReporter"/>
+    <listener class-name="org.testng.reporters.EmailableReporter2"/>
+    <listener class-name="org.testng.reporters.FailedReporter"/>
   </listeners>
   <test thread-count="5" parallel="tests" name="ValidLogin with Chrome(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
       <class name="login.ValidLoginTest">
         <methods>
-          <include name="afterMethod"/>
           <include name="loginTestWithValidCredentials"/>
           <include name="beforeMethod"/>
         </methods>

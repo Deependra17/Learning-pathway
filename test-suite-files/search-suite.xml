@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <!-- Login Suite -->
-<suite name="Search Suite">
+<suite name="Search Suite" thread-count="2" parallel="tests">
     <listeners>
         <listener class-name="org.testng.reporters.EmailableReporter2"/>
         <listener class-name="org.testng.reporters.FailedReporter"/>
@@ -17,7 +17,7 @@
             </class>
         </classes>
     </test>
-    <test name="Empty search with Chrome" enabled="false">
+    <test name="Empty search with Chrome" enabled="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="search.EmptySearchTest">
@@ -27,7 +27,7 @@
             </class>
         </classes>
     </test>
-    <test name="Invalid search with Chrome" enabled="false">
+    <test name="Invalid search with Chrome" enabled="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="search.SearchSpecialCharactersTest">
@@ -37,12 +37,32 @@
             </class>
         </classes>
     </test>
-    <test name="Text length boundary search with Chrome" enabled="false">
+    <test name="Text length boundary search with Chrome" enabled="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="search.SqlInjectionTest">
                 <methods>
                     <include name="securityTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Filter search by category" enabled="true">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="filtersearch.bycategory.SearchByCategoryTest">
+                <methods>
+                    <exclude name="bookSearchByCategoryTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Filter search by category with level" enabled="true">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="filtersearch.bycategory.SearchBookByCategoryWithLevelTest">
+                <methods>
+                    <exclude name="searchBookByCategoryWithLevel"/>
                 </methods>
             </class>
         </classes>

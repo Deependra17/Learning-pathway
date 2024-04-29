@@ -5,37 +5,9 @@
         <listener class-name="org.testng.reporters.EmailableReporter2"/>
         <listener class-name="org.testng.reporters.FailedReporter"/>
     </listeners>
-    <test verbose="2" name="Broken link test" thread-count="3" enabled="false"
-          allow-return-values="true">
-        <parameter name="browser" value="Chrome"/>
-        <classes>
-            <class name="autosuggestion.BrokenLinksTest">
-                <methods>
-                    <include name="getAllBrokenLinks"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-        <test verbose="2" name="LoginTest" thread-count="3" enabled="false"
-        allow-return-values="true" >
-        <parameter name="browser" value="Chrome"/>
-        <classes>
-            <class name="login.ValidLoginTest">
-                <methods>
-                    <include name="loginTestWithValidCredentials"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test verbose="2" name="ReadBookTest" thread-count="3" enabled="true"
-          allow-return-values="true">
-        <parameter name="browser" value="Chrome"/>
-        <classes>
-            <class name="org.pathway.ReadBookTest">
-                <methods>
-                    <include name="readBook"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+    <suite-files>
+        <suite-file path="test-suite-files/loginTest-suite.xml"/>
+        <suite-file path="test-suite-files/filter-search-suite.xml"/>
+        <suite-file path="test-suite-files/search-suite.xml"/>
+    </suite-files>
 </suite>

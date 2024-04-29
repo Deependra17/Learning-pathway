@@ -12,6 +12,7 @@ import utils.Configuration;
 import utils.DriverFactory;
 import utils.LoginUtils;
 
+import java.time.Duration;
 import java.util.List;
 
 public class EmptySearchTest {
@@ -29,6 +30,7 @@ public class EmptySearchTest {
 
     @Test
     public void emptySearch() throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         utils.Configuration config = new Configuration();
         WebElement search = driver.findElement(By.xpath(config.getInputField()));
         search.sendKeys(" ");

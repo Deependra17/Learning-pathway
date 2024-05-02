@@ -1,25 +1,21 @@
 package filtersearch.bycategory;
 
 import filtersearch.FilterSearchLocators;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import utils.BookUtil;
 import utils.DriverFactory;
 import utils.LoginUtils;
+
 
 import java.time.Duration;
 import java.util.List;
 
-public class SearchBookByLanguageAndCategoryTest {
+public class SearchBookByLanguageTest {
     LoginUtils loginUtils;
     private WebDriver driver;
 
@@ -38,33 +34,32 @@ public class SearchBookByLanguageAndCategoryTest {
         FilterSearchLocators locate = new FilterSearchLocators();
         WebElement filterButton = driver.findElement(By.xpath(locate.getFilterSearchButton()));
         filterButton.click();
+        Thread.sleep(2000);
 
         WebElement languageDropdown = driver.findElement(By.xpath(locate.getSelectLanguage()));
         languageDropdown.click();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement nepaliOption = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locate.getChooseLanguage())));
+        WebElement nepaliOption = driver.findElement(By.xpath(locate.getChooseLanguage()));
         nepaliOption.click();
+        Thread.sleep(5000);
 
         WebElement showBooks = driver.findElement(By.xpath(locate.getShowBooksButton()));
         showBooks.click();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
 
-        List<WebElement> bookElements = driver.findElements(By.xpath(locate.getVerifyAllBooks()));
-
-        for (WebElement bookElement : bookElements) {
-            String bookLanguage = bookElement.getText();
-            System.out.println(bookElement.getText());
-            System.out.println("Book Language: " + bookLanguage);
-
-            if (!bookLanguage.equalsIgnoreCase("Nepali")) {
-                System.out.println("All Book are not in Nepali language: " + bookLanguage);
-//                Assert.assertEquals(bookLanguage.trim(), "Nepali", "Book language is not Nepali");
-            } else {
-                System.out.println("All Books are not in Nepali language");
-            }
+        // Get all book elements and extract their names
+//        List<WebElement> bookElements = driver.findElements(By.xpath(locate.getVerifyAllBooks()));
+        List<String> allBookNames = BookUtil.getAllBookNames(driver, locate.getVerifyAllBooks());
+        System.out.println("Names of all books:");
+        for (String bookName : allBookNames) {
+            System.out.println(bookName);
         }
 
+        // Verify that all book names are in Nepali language
+        BookUtil.verifyAllBookNamesAreNepali(allBookNames);
+
+        // If no assertion failures occur, all book names are in Nepali
+        System.out.println("All book names are in Nepali.");
     }
 
 

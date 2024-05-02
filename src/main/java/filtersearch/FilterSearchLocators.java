@@ -20,23 +20,24 @@ public class FilterSearchLocators {
     private String SelectLanguage;
     private String VerifyAllBooks;
     private String ChooseLanguage;
-   public FilterSearchLocators () {
+
+    public FilterSearchLocators() {
         try {
             InputStream input = new FileInputStream("src/main/resources/filter.properties");
             Properties prop = new Properties();
             prop.load(input);
 
-            this.FilterSearchButton= prop.getProperty("FilterSearchButton");
-            this.SelectCategory= prop.getProperty("SelectCategory");
-            this.ShowBooksButton= prop.getProperty("ShowBooksButton");
-            this.ClickOnBook=prop.getProperty("ClickOnBook");
-            this.VerifyCategory= prop.getProperty("VerifyCategory");
-            this.CloseButton=prop.getProperty("CloseButton");
+            this.FilterSearchButton = prop.getProperty("FilterSearchButton");
+            this.SelectCategory = prop.getProperty("SelectCategory");
+            this.ShowBooksButton = prop.getProperty("ShowBooksButton");
+            this.ClickOnBook = prop.getProperty("ClickOnBook");
+            this.VerifyCategory = prop.getProperty("VerifyCategory");
+            this.CloseButton = prop.getProperty("CloseButton");
             this.Level = prop.getProperty("Level");
-            this.VerifyLevel= prop.getProperty("VerifyLevel");
-            this.SelectLanguage= prop.getProperty("SelectLanguage");
+            this.VerifyLevel = prop.getProperty("VerifyLevel");
+            this.SelectLanguage = prop.getProperty("SelectLanguage");
             this.VerifyAllBooks = prop.getProperty("VerifyAllBooks");
-            this.ChooseLanguage= prop.getProperty("ChooseLanguage");
+            this.ChooseLanguage = prop.getProperty("ChooseLanguage");
 
         } catch (
                 IOException ex) {

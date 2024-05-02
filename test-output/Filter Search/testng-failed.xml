@@ -8,13 +8,13 @@
   <test thread-count="2" name="Search By Category by language(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="filtersearch.bycategory.SearchBookByLanguageAndCategoryTest">
+      <class name="filtersearch.bycategory.SearchBookByLanguageTest">
         <methods>
-          <include name="tearDown"/>
-          <include name="beforeMethod"/>
           <include name="bookSearchByLanguage"/>
+          <include name="beforeMethod"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- filtersearch.bycategory.SearchBookByLanguageAndCategoryTest -->
+      </class> <!-- filtersearch.bycategory.SearchBookByLanguageTest -->
     </classes>
   </test> <!-- Search By Category by language(failed) -->
 </suite> <!-- Failed suite [Filter Search] -->

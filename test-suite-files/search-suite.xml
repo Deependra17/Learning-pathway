@@ -70,7 +70,7 @@
     <test name="Filter search by category with level" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.bycategory.SearchBookByCategoryWithLevelTest">
+            <class name="filtersearch.bycategory.SearchBookByCategoryTest">
                 <methods>
                     <exclude name="searchBookByCategoryWithLevel"/>
                 </methods>

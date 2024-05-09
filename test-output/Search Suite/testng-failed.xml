@@ -10,9 +10,9 @@
     <classes>
       <class name="search.SearchByLanguageTest">
         <methods>
+          <include name="tearDown"/>
           <include name="beforeMethod"/>
           <include name="searchBookByLanguage"/>
-          <include name="tearDown"/>
         </methods>
       </class> <!-- search.SearchByLanguageTest -->
     </classes>

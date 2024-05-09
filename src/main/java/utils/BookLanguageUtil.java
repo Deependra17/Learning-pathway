@@ -8,7 +8,7 @@ import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookUtil {
+public class BookLanguageUtil {
 
     public static void verifyAllBookNamesAreNepali(List<String> bookNames) {
         for (String bookName : bookNames) {

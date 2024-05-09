@@ -1,5 +1,6 @@
 package filtersearch.bycategory;
 
+import filtersearch.FilterButton;
 import filtersearch.FilterSearchLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -15,7 +16,7 @@ import utils.LoginUtils;
 
 import java.time.Duration;
 
-public class SearchBookByCategoryWithLevelTest {
+public class SearchBookByCategoryTest {
     LoginUtils loginUtils;
     private WebDriver driver;
 
@@ -26,14 +27,15 @@ public class SearchBookByCategoryWithLevelTest {
         loginUtils = new LoginUtils(driver);
         loginUtils.login();
         Thread.sleep(2000);
+
+        FilterButton click = new FilterButton(driver);
+        click.clickOnFilterButton();
     }
 
     @Test()
-    public void searchBookByCategoryWithLevel() throws InterruptedException {
+    public void searchBookByCategoryTest() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         FilterSearchLocators locate = new FilterSearchLocators();
-        WebElement filterButton = driver.findElement(By.xpath(locate.getFilterSearchButton()));
-        filterButton.click();
 
         WebElement level = driver.findElement(By.xpath(locate.getLevel()));
         Thread.sleep(2000);

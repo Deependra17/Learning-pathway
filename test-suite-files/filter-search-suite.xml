@@ -20,9 +20,19 @@
     <test name="Search By Category with Level" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.bycategory.SearchBookByCategoryWithLevelTest">
+            <class name="filtersearch.bycategory.SearchBookByCategoryTest">
                 <methods>
-                    <include name="searchBookByCategoryWithLevel"/>
+                    <include name="searchBookByCategoryTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Search By Category by language" enabled="false">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="filtersearch.bycategory.SearchBookByLanguageTest">
+                <methods>
+                    <include name="bookSearchByLanguage"/>
                 </methods>
             </class>
         </classes>
@@ -30,9 +40,9 @@
     <test name="Search By Category by language" enabled="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.bycategory.SearchBookByLanguageTest">
+            <class name="filtersearch.byreadinglevel.SearchByLevelTest">
                 <methods>
-                    <include name="bookSearchByLanguage"/>
+                    <include name="searchBuBookLevel"/>
                 </methods>
             </class>
         </classes>

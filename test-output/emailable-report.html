@@ -8,85 +8,11 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Search Suite</th></tr>
-<tr><td><a href="#t0">Text length boundary search with Chrome</a></td><td class="num">0</td><td class="num attn">1</td><td class="num">0</td><td class="num">0</td><td class="num">194,005</td><td></td><td></td></tr>
+<tr><th colspan="8">Filter Search</th></tr>
+<tr><td><a href="#t0">Search By Category by language</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">75,046</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Search Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Text length boundary search with Chrome &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">search.SearchByLanguageTest</td><td><a href="#m0">beforeMethod</a></td><td rowspan="1">1714651211599</td><td rowspan="1">193890</td></tr><tr><th colspan="4">Text length boundary search with Chrome &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="1">search.SearchByLanguageTest</td><td><a href="#m1">tearDown</a></td><td rowspan="1">1714651405539</td><td rowspan="1">0</td></tr><tr><th colspan="4">Text length boundary search with Chrome &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="1">search.SearchByLanguageTest</td><td><a href="#m2">searchBookByLanguage</a></td><td rowspan="1">1714651405533</td><td rowspan="1">1</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Filter Search</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Search By Category by language &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">filtersearch.byreadinglevel.SearchByLevelTest</td><td><a href="#m0">searchBuBookLevel</a></td><td rowspan="1">1715262991596</td><td rowspan="1">16268</td></tr></tbody>
 </table>
-<h2>Text length boundary search with Chrome</h2><h3 id="m0">search.SearchByLanguage#beforeMethod</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>Chrome</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException:
-	java.util.concurrent.TimeoutException
-	Build info: version: &apos;4.16.1&apos;, revision: &apos;9b4c83354e&apos;
-	System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.5.6-76060506-generic&apos;,
-	java.version: &apos;19.0.2&apos;
-	Driver info: org.openqa.selenium.chrome.ChromeDriver
-	Command: [4252517a30f046256bd3b2fc5015d636, get {url=https://reader-dot-lets-read-dev.uc.r.appspot.com}]
-	Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 122.0.6261.94, chrome:
-	{chromedriverVersion: 122.0.6261.128 (f18a44fedeb..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts:
-	true, goog:chromeOptions: {debuggerAddress: localhost:43881}, networkConnectionEnabled: false, pageLoadStrategy:
-	normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:43881/devtoo..., se:cdpVersion: 122.0.6261.94,
-	setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000},
-	unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true,
-	webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-	Session ID: 4252517a30f046256bd3b2fc5015d636
-	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:402)
-	at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
-	at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
-	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:358)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:188)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:305)
-	at utils.LoginUtils.login(LoginUtils.java:24)
-	at search.SearchByLanguageTest.beforeMethod(SearchByLanguage.java:28)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1589)
-	Caused by: java.util.concurrent.TimeoutException
-	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
-	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
-	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:385)
-	... 34 more
-	... Removed 19 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">search.SearchByLanguage#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">search.SearchByLanguage#searchBookByLanguage</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException:
-	java.util.concurrent.TimeoutException
-	Build info: version: &apos;4.16.1&apos;, revision: &apos;9b4c83354e&apos;
-	System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.5.6-76060506-generic&apos;,
-	java.version: &apos;19.0.2&apos;
-	Driver info: org.openqa.selenium.chrome.ChromeDriver
-	Command: [4252517a30f046256bd3b2fc5015d636, get {url=https://reader-dot-lets-read-dev.uc.r.appspot.com}]
-	Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 122.0.6261.94, chrome:
-	{chromedriverVersion: 122.0.6261.128 (f18a44fedeb..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts:
-	true, goog:chromeOptions: {debuggerAddress: localhost:43881}, networkConnectionEnabled: false, pageLoadStrategy:
-	normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:43881/devtoo..., se:cdpVersion: 122.0.6261.94,
-	setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000},
-	unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true,
-	webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-	Session ID: 4252517a30f046256bd3b2fc5015d636
-	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:402)
-	at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
-	at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
-	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:358)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:188)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:305)
-	at utils.LoginUtils.login(LoginUtils.java:24)
-	at search.SearchByLanguageTest.beforeMethod(SearchByLanguage.java:28)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1589)
-	Caused by: java.util.concurrent.TimeoutException
-	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
-	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
-	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:385)
-	... 34 more
-	... Removed 19 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Search By Category by language</h2><h3 id="m0">filtersearch.byreadinglevel.SearchByLevelTest#searchBuBookLevel</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -9,7 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import utils.BookUtil;
+import utils.BookLanguageUtil;
 import utils.Configuration;
 import utils.DriverFactory;
 import utils.LoginUtils;
@@ -49,14 +49,14 @@ public class SearchByLanguageTest {
             System.out.println(bookName);
         }
 
-        List<String> allBookNames = BookUtil.getAllBookNames(driver, locate.getVerifyAllBooks());
+        List<String> allBookNames = BookLanguageUtil.getAllBookNames(driver, locate.getVerifyAllBooks());
         System.out.println("Names of all books:");
         for (String bookName : allBookNames) {
             System.out.println(bookName);
         }
 
         // Verify that all book names are in Nepali language
-        BookUtil.verifyAllBookNamesAreNepali(allBookNames);
+        BookLanguageUtil.verifyAllBookNamesAreNepali(allBookNames);
 
         // If no assertion failures occur, all book names are in Nepali
         System.out.println("All book names are in Nepali.");

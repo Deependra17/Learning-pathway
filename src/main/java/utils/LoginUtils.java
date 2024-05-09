@@ -40,6 +40,7 @@ public class LoginUtils {
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
             throw new RuntimeException(e);
         }
 
@@ -48,6 +49,7 @@ public class LoginUtils {
             System.out.println("No new windows found.");
             return;
         }
+
         for (String handle : handles) {
             if (!handle.equals(parentHandle)) {
                 driver.switchTo().window(handle);
@@ -55,6 +57,8 @@ public class LoginUtils {
                 System.out.println("User is on the new window");
             }
         }
+
+
         WebElement usernameField = driver.findElement(By.xpath(config.getEmailInput()));
         usernameField.sendKeys(cred.getUsername());
         usernameField.sendKeys(Keys.ENTER);
@@ -87,6 +91,7 @@ public class LoginUtils {
             Thread.sleep(2000); // Adjust the wait time as needed
             profile.click();
         }
+
         System.out.println("Profile is Chosen");
         Thread.sleep(2000);
         driver.findElement(By.xpath(config.getClickOnHome())).click();

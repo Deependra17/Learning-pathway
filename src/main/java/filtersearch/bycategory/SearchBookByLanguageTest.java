@@ -1,13 +1,13 @@
 package filtersearch.bycategory;
 
+import filtersearch.FilterButton;
 import filtersearch.FilterSearchLocators;
 import org.openqa.selenium.*;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import utils.BookUtil;
+import utils.BookLanguageUtil;
 import utils.DriverFactory;
 import utils.LoginUtils;
 
@@ -26,15 +26,15 @@ public class SearchBookByLanguageTest {
         loginUtils = new LoginUtils(driver);
         loginUtils.login();
         Thread.sleep(2000);
+
+        FilterButton click = new FilterButton(driver);
+        click.clickOnFilterButton();
     }
 
     @Test()
     public void bookSearchByLanguage() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         FilterSearchLocators locate = new FilterSearchLocators();
-        WebElement filterButton = driver.findElement(By.xpath(locate.getFilterSearchButton()));
-        filterButton.click();
-        Thread.sleep(2000);
 
         WebElement languageDropdown = driver.findElement(By.xpath(locate.getSelectLanguage()));
         languageDropdown.click();
@@ -49,14 +49,14 @@ public class SearchBookByLanguageTest {
 
         // Get all book elements and extract their names
 //        List<WebElement> bookElements = driver.findElements(By.xpath(locate.getVerifyAllBooks()));
-        List<String> allBookNames = BookUtil.getAllBookNames(driver, locate.getVerifyAllBooks());
+        List<String> allBookNames = BookLanguageUtil.getAllBookNames(driver, locate.getVerifyAllBooks());
         System.out.println("Names of all books:");
         for (String bookName : allBookNames) {
             System.out.println(bookName);
         }
 
         // Verify that all book names are in Nepali language
-        BookUtil.verifyAllBookNamesAreNepali(allBookNames);
+        BookLanguageUtil.verifyAllBookNamesAreNepali(allBookNames);
 
         // If no assertion failures occur, all book names are in Nepali
         System.out.println("All book names are in Nepali.");

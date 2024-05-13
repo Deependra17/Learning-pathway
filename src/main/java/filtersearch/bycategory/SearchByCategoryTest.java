@@ -1,42 +1,36 @@
 package filtersearch.bycategory;
 
 import filtersearch.FilterButton;
-import filtersearch.FilterSearchLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import filtersearch.FilterSearchLocators;
+import utils.CustomListener;
 import utils.DriverFactory;
-import utils.LoginUtils;
+import utils.TestSetUp;
 
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
-
+@Listeners(CustomListener.class)
 public class SearchByCategoryTest {
-    LoginUtils loginUtils;
+    TestSetUp set = new TestSetUp();
     private WebDriver driver;
 
-    @BeforeMethod
+    @Test
     @Parameters({"browser"})
-    public void beforeMethod(String browser) throws InterruptedException {
+    public void bookSearchByCategoryTest(String browser) throws InterruptedException {
+        set.beforeMethod(browser);
+        System.out.println("Test started..");
         driver = DriverFactory.build(browser);
-        loginUtils = new LoginUtils(driver);
-        loginUtils.login();
-        Thread.sleep(2000);
-
+        FilterSearchLocators locate = new FilterSearchLocators();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         FilterButton click = new FilterButton(driver);
         click.clickOnFilterButton();
-    }
-
-    @Test()
-    public void bookSearchByCategoryTest() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        FilterSearchLocators locate = new FilterSearchLocators();
 
         WebElement category = driver.findElement(By.xpath(locate.getSelectCategory()));
         Thread.sleep(3000);
@@ -59,15 +53,10 @@ public class SearchByCategoryTest {
 
         Assert.assertEquals(actualCategory, expectedCategory, "Category does not match");
         System.out.println("Category Matched");
+
         WebElement closeButton = driver.findElement(By.xpath(locate.getCloseButton()));
         closeButton.click();
-    }
 
-
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.close();
-        }
+        set.tearDown();
     }
 }

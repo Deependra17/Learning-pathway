@@ -1,8 +1,0 @@
-Given().
-        param("x", "y").
-        header("z", "w").
-when().
-Method().
-Then().
-        statusCode(XXX).
-        body("x, ”y", equalTo("z"));

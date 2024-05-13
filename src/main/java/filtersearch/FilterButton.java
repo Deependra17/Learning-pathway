@@ -10,6 +10,7 @@ public class FilterButton {
     public FilterButton(WebDriver driver) {
         this.driver = driver;
     }
+
     public void clickOnFilterButton() {
 
         FilterSearchLocators locate = new FilterSearchLocators();

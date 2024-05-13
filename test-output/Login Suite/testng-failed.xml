@@ -4,18 +4,15 @@
   <listeners>
     <listener class-name="org.testng.reporters.EmailableReporter2"/>
     <listener class-name="org.testng.reporters.FailedReporter"/>
-    <listener class-name="org.testng.reporters.EmailableReporter2"/>
-    <listener class-name="org.testng.reporters.FailedReporter"/>
   </listeners>
-  <test thread-count="5" parallel="tests" name="ValidLogin with Chrome(failed)">
+  <test thread-count="5" parallel="methods" name="InvalidLogin with Chrome(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="login.ValidLoginTest">
+      <class name="login.InvalidLoginTest">
         <methods>
-          <include name="loginTestWithValidCredentials"/>
-          <include name="beforeMethod"/>
+          <include name="loginTestWithInvalidPassword" invocation-numbers="0"/>
         </methods>
-      </class> <!-- login.ValidLoginTest -->
+      </class> <!-- login.InvalidLoginTest -->
     </classes>
-  </test> <!-- ValidLogin with Chrome(failed) -->
+  </test> <!-- InvalidLogin with Chrome(failed) -->
 </suite> <!-- Failed suite [Login Suite] -->

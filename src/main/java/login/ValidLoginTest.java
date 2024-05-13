@@ -12,24 +12,20 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utils.DriverFactory;
 import utils.LoginUtils;
+import utils.TestSetUp;
 
 import java.time.Duration;
 
 public class ValidLoginTest {
-    LoginUtils loginUtils;
+    TestSetUp set = new TestSetUp();
     private WebDriver driver;
 
-    @BeforeMethod
-    @Parameters({"browser"})
-    public void beforeMethod(String browser) throws InterruptedException {
-        driver = DriverFactory.build(browser);
-        loginUtils = new LoginUtils(driver);
-        loginUtils.login();
-        Thread.sleep(2000);
-    }
-
     @Test()
-    public void loginTestWithValidCredentials() {
+    @Parameters({"browser"})
+    public void loginTestWithValidCredentials(String browser) throws InterruptedException {
+        set.beforeMethod(browser);
+        driver = DriverFactory.build(browser);
+        Thread.sleep(3000);
         try {
             String expectedTitle = "Let's Read | Children's Books | Free to Read Download Translate";
             String actualTitle = driver.getTitle();
@@ -44,10 +40,7 @@ public class ValidLoginTest {
             System.out.println("Logo text: " + actualLogoText);
             Assert.assertEquals(actualLogoText, expectedLogoText, "Text does not match");
         } finally {
-            // Close the WebDriver session after each invocation
-            if (driver != null) {
-                driver.close();
-            }
+            set.tearDown();
         }
     }
 

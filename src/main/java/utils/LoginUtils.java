@@ -135,7 +135,7 @@ public class LoginUtils {
 
         WebElement passwordField = driver.findElement(By.xpath(config.getPasswordInput()));
         passwordField.sendKeys(config.getInvalidPassword());
-        System.out.println(config.getInvalidPassword());
+//        System.out.println(config.getInvalidPassword());
         passwordField.sendKeys(Keys.ENTER);
         Thread.sleep(5000);
 

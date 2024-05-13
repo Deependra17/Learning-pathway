@@ -9,18 +9,18 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utils.DriverFactory;
 import utils.LoginUtils;
+import utils.TestSetUp;
 
 import java.time.Duration;
 
 public class InvalidLoginTest {
-    LoginUtils loginUtils;
+    TestSetUp set = new TestSetUp();
     private WebDriver driver;
     @Test
     @Parameters("browser")
     public void loginTestWithInvalidPassword(String browser) throws InterruptedException {
+        set.invalidLogin(browser);
         driver = DriverFactory.build(browser);
-        loginUtils = new LoginUtils(driver);
-        loginUtils.loginWithInvalidCredentials();
 
 // Wait for the login attempt to complete
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -36,12 +36,7 @@ public class InvalidLoginTest {
             // No error message found, login might be successful
             System.out.println("No error message found.");
         }
+        set.tearDown();
     }
 
-    @AfterMethod
-    public void afterMethod() {
-        if (driver != null) {
-            driver.close();
-        }
-    }
 }

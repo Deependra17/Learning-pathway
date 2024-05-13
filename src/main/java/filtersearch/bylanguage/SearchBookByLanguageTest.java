@@ -1,40 +1,30 @@
-package filtersearch.bycategory;
+package filtersearch.bylanguage;
 
 import filtersearch.FilterButton;
 import filtersearch.FilterSearchLocators;
 import org.openqa.selenium.*;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
-import utils.BookLanguageUtil;
-import utils.DriverFactory;
-import utils.LoginUtils;
+import org.testng.annotations.*;
+import utils.*;
 
 
 import java.time.Duration;
 import java.util.List;
-
+import java.util.concurrent.TimeUnit;
+@Listeners(CustomListener.class)
 public class SearchBookByLanguageTest {
-    LoginUtils loginUtils;
+    TestSetUp set = new TestSetUp();
     private WebDriver driver;
 
-    @BeforeMethod
+    @Test()
     @Parameters({"browser"})
-    public void beforeMethod(String browser) throws InterruptedException {
+    public void bookSearchByLanguage(String browser) throws InterruptedException {
+        set.beforeMethod(browser);
+        System.out.println("Test started..");
         driver = DriverFactory.build(browser);
-        loginUtils = new LoginUtils(driver);
-        loginUtils.login();
-        Thread.sleep(2000);
-
+        FilterSearchLocators locate = new FilterSearchLocators();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         FilterButton click = new FilterButton(driver);
         click.clickOnFilterButton();
-    }
-
-    @Test()
-    public void bookSearchByLanguage() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        FilterSearchLocators locate = new FilterSearchLocators();
 
         WebElement languageDropdown = driver.findElement(By.xpath(locate.getSelectLanguage()));
         languageDropdown.click();
@@ -60,13 +50,8 @@ public class SearchBookByLanguageTest {
 
         // If no assertion failures occur, all book names are in Nepali
         System.out.println("All book names are in Nepali.");
+
+        set.tearDown();
     }
 
-
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.close();
-        }
-    }
 }

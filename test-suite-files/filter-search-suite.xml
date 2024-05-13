@@ -7,7 +7,17 @@
         <listener class-name="org.testng.reporters.FailedReporter"/>
     </listeners>
     <!-- Test 1: Login with Chrome -->
-    <test name="Search By Category with Chrome" enabled="false">
+    <test name=" Filter Search by language" enabled="false">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="filtersearch.bylanguage.SearchBookByLanguageTest">
+                <methods>
+                    <include name="bookSearchByLanguage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Search by category" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="filtersearch.bycategory.SearchByCategoryTest">
@@ -17,32 +27,12 @@
             </class>
         </classes>
     </test>
-    <test name="Search By Category with Level" enabled="false">
+    <test name="Search by reading level" enabled="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.bycategory.SearchBookByCategoryTest">
+            <class name="filtersearch.byreadinglevel.SearchBookByReadingLevelTest">
                 <methods>
-                    <include name="searchBookByCategoryTest"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="Search By Category by language" enabled="false">
-        <parameter name="browser" value="Chrome"/>
-        <classes>
-            <class name="filtersearch.bycategory.SearchBookByLanguageTest">
-                <methods>
-                    <include name="bookSearchByLanguage"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="Search By Category by language" enabled="true">
-        <parameter name="browser" value="Chrome"/>
-        <classes>
-            <class name="filtersearch.byreadinglevel.SearchByLevelTest">
-                <methods>
-                    <include name="searchBuBookLevel"/>
+                    <include name="searchBookByReadingLevelTest"/>
                 </methods>
             </class>
         </classes>

@@ -3,6 +3,7 @@ package filtersearch.byreadinglevel;
 import filtersearch.FilterButton;
 import filtersearch.FilterSearchLocators;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -12,33 +13,30 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utils.DriverFactory;
 import utils.LoginUtils;
+import utils.TestSetUp;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
-public class SearchByLevelTest {
-    LoginUtils loginUtils;
-    private  WebDriver driver;
+public class SearchBookByReadingLevelTest {
+    TestSetUp set = new TestSetUp();
+    private WebDriver driver;
 
-    @BeforeMethod
-    @Parameters("browser")
-    public void beforeMethod(String browser) throws InterruptedException {
+    @Test()
+    @Parameters({"browser"})
+    public void searchBookByReadingLevelTest(String browser) throws InterruptedException {
+        set.beforeMethod(browser);
+        System.out.println("Test started..");
         driver = DriverFactory.build(browser);
-        loginUtils = new LoginUtils(driver);
-        loginUtils.login();
-        Thread.sleep(3000);
-    }
-
-    @Test
-    public void searchBuBookLevel() throws InterruptedException {
-        FilterButton clickButton = new FilterButton(driver);
-        clickButton.clickOnFilterButton();
         FilterSearchLocators locate = new FilterSearchLocators();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        FilterButton click = new FilterButton(driver);
+        click.clickOnFilterButton();
 
         WebElement level = driver.findElement(By.xpath(locate.getLevel()));
         Thread.sleep(2000);
         String expectedLevel = level.getText();
-        System.out.println("Expected Level: " + expectedLevel);
+        System.out.println("Expected Level: "+expectedLevel);
         level.click();
 
         WebElement showBook = driver.findElement(By.xpath(locate.getShowBooksButton()));
@@ -47,22 +45,15 @@ public class SearchByLevelTest {
         WebElement book = driver.findElement(By.xpath(locate.getClickOnBook()));
         book.click();
         Thread.sleep(3000);
-
         WebElement verify = driver.findElement(By.xpath(locate.getVerifyLevel()));
         String actualLevel = verify.getText();
         System.out.println("Actual Level: " + actualLevel);
         Thread.sleep(2000);
-
         Assert.assertEquals(actualLevel, expectedLevel, "Level does not match");
+        System.out.println("Level Matched");
 
         WebElement closeButton = driver.findElement(By.xpath(locate.getCloseButton()));
         closeButton.click();
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.close();
-        }
+        set.tearDown();
     }
 }

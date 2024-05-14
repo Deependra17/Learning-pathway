@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <!-- Login Suite -->
-<suite name="Search Suite" thread-count="2" parallel="tests">
+<suite name="Search Suite">
     <listeners>
         <listener class-name="org.testng.reporters.EmailableReporter2"/>
         <listener class-name="org.testng.reporters.FailedReporter"/>
     </listeners>
     <!-- Test 1: Login with Chrome -->
-    <test name="Search Book by name with Chrome" enabled="false">
+    <test name="Search Book by name with Chrome" enabled="true" preserve-order="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="search.SearchByNameTest">
@@ -37,7 +37,7 @@
             </class>
         </classes>
     </test>
-    <test name="Text length boundary search with Chrome" enabled="false">
+    <test name="Text length boundary search with Chrome" enabled="false" preserve-order="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="search.SqlInjectionTest">
@@ -47,7 +47,7 @@
             </class>
         </classes>
     </test>
-    <test name="Text length boundary search with Chrome" enabled="true">
+    <test name="search by language with Chrome" enabled="false" preserve-order="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="search.SearchByLanguageTest">

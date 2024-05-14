@@ -5,33 +5,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
-import utils.BookLanguageUtil;
-import utils.Configuration;
-import utils.DriverFactory;
-import utils.LoginUtils;
+import org.testng.annotations.*;
+import utils.*;
 
 import java.time.Duration;
 import java.util.List;
 
+@Listeners(CustomListener.class)
 public class SearchByLanguageTest {
-
-    LoginUtils loginUtils;
+    TestSetUp set = new TestSetUp();
     private WebDriver driver;
 
-    @BeforeMethod
-    @Parameters({"browser"})
-    public void beforeMethod(String browser) throws InterruptedException {
-        driver = DriverFactory.build(browser);
-        loginUtils = new LoginUtils(driver);
-        loginUtils.login();
-    }
-
     @Test
-    public void searchBookByLanguage() throws InterruptedException {
+    @Parameters({"browser"})
+    public void searchBookByLanguage(String browser) throws InterruptedException {
+        set.beforeMethod(browser);
+        driver = DriverFactory.build(browser);
         FilterSearchLocators locate = new FilterSearchLocators();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         utils.Configuration config = new Configuration();
@@ -60,13 +49,9 @@ public class SearchByLanguageTest {
 
         // If no assertion failures occur, all book names are in Nepali
         System.out.println("All book names are in Nepali.");
-    }
 
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.close();
-        }
+        set.tearDown();
+        ;
     }
 
 }

@@ -5,31 +5,22 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
-import utils.Configuration;
-import utils.DriverFactory;
-import utils.LoginUtils;
+import org.testng.annotations.*;
+import utils.*;
 
 import java.time.Duration;
 
+@Listeners(CustomListener.class)
 public class SearchSpecialCharactersTest {
-    LoginUtils loginUtils;
+    TestSetUp set = new TestSetUp();
 
     private WebDriver driver;
 
-    @BeforeMethod
-    @Parameters({"browser"})
-    public void beforeMethod(String browser) throws InterruptedException {
-        driver = DriverFactory.build(browser);
-        loginUtils = new LoginUtils(driver);
-        loginUtils.login();
-    }
-
     @Test
-    public void searchWithSpecialCharacter() throws InterruptedException {
+    @Parameters({"browser"})
+    public void searchWithSpecialCharacter(String browser) throws InterruptedException {
+        set.beforeMethod(browser);
+        driver = DriverFactory.build(browser);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         utils.Configuration config = new Configuration();
         WebElement search = driver.findElement(By.xpath(config.getInputField()));
@@ -38,13 +29,6 @@ public class SearchSpecialCharactersTest {
         Thread.sleep(5000);
         WebElement errorMessage = driver.findElement(By.xpath(config.getErrorMessage()));
         Assert.assertTrue(errorMessage.isDisplayed(), "Error message not displayed");
-
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.close();
-        }
+        set.tearDown();
     }
 }

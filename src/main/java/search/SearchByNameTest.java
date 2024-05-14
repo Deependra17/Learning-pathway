@@ -1,37 +1,31 @@
 package search;
 
+import filtersearch.FilterSearchLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
-import utils.Configuration;
-import utils.DriverFactory;
-import utils.LoginUtils;
+import org.testng.annotations.*;
+import utils.*;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+@Listeners(CustomListener.class)
 public class SearchByNameTest {
 
-    LoginUtils loginUtils;
+    TestSetUp set = new TestSetUp();
     private WebDriver driver;
 
-    @BeforeMethod
-    @Parameters({"browser"})
-    public void beforeMethod(String browser) throws InterruptedException {
-        driver = DriverFactory.build(browser);
-        loginUtils = new LoginUtils(driver);
-        loginUtils.login();
-    }
-
     @Test()
-    public void searchByName() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+    @Parameters({"browser"})
+    public void searchByName(String browser) throws InterruptedException {
+        set.beforeMethod(browser);
+        driver = DriverFactory.build(browser);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
         utils.Configuration config = new Configuration();
         long startTime = System.currentTimeMillis();
 
@@ -76,12 +70,6 @@ public class SearchByNameTest {
         } else {
             System.out.println("Book 'My Body' is not present in the list.");
         }
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.close();
-        }
+        set.tearDown();
     }
 }

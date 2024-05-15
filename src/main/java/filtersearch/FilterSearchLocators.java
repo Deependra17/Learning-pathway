@@ -12,7 +12,7 @@ public class FilterSearchLocators {
     private String FilterSearchButton;
     private String SelectCategory;
     private String ShowBooksButton;
-    private String ClickOnBook;
+    private String ClickOnBookForCategory;
     private String VerifyCategory;
     private String CloseButton;
     private String Level;
@@ -23,6 +23,7 @@ public class FilterSearchLocators {
     private String SelectAudio;
     private String ClickOnAudioBook;
     private String VerifyAudio;
+    private String ClickOnBook;
 
     public FilterSearchLocators() {
         try {
@@ -33,7 +34,7 @@ public class FilterSearchLocators {
             this.FilterSearchButton = prop.getProperty("FilterSearchButton");
             this.SelectCategory = prop.getProperty("SelectCategory");
             this.ShowBooksButton = prop.getProperty("ShowBooksButton");
-            this.ClickOnBook = prop.getProperty("ClickOnBook");
+            this.ClickOnBookForCategory = prop.getProperty("ClickOnBookForCategory");
             this.VerifyCategory = prop.getProperty("VerifyCategory");
             this.CloseButton = prop.getProperty("CloseButton");
             this.Level = prop.getProperty("Level");
@@ -44,6 +45,7 @@ public class FilterSearchLocators {
             this.SelectAudio = prop.getProperty("SelectAudio");
             this.ClickOnAudioBook = prop.getProperty("ClickOnAudioBook");
             this.VerifyAudio = prop.getProperty("VerifyAudio");
+            this.ClickOnBook = prop.getProperty("ClickOnBook");
 
 
         } catch (

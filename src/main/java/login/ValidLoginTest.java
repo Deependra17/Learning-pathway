@@ -21,7 +21,7 @@ public class ValidLoginTest {
     TestSetUp set = new TestSetUp();
     private WebDriver driver;
 
-    @Test(retryAnalyzer = RetryAnalyzer.class)
+    @Test()
     @Parameters({"browser"})
     public void loginTestWithValidCredentials(String browser) throws InterruptedException {
         set.beforeMethod(browser);

@@ -17,7 +17,7 @@ import java.time.Duration;
 public class InvalidLoginTest {
     TestSetUp set = new TestSetUp();
     private WebDriver driver;
-    @Test(retryAnalyzer = RetryAnalyzer.class)
+    @Test()
     @Parameters("browser")
     public void loginTestWithInvalidPassword(String browser) throws InterruptedException {
         set.invalidLogin(browser);

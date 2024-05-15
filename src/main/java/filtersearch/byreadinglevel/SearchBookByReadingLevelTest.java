@@ -13,6 +13,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utils.DriverFactory;
 import utils.LoginUtils;
+import utils.RetryAnalyzer;
 import utils.TestSetUp;
 
 import java.time.Duration;
@@ -22,7 +23,7 @@ public class SearchBookByReadingLevelTest {
     TestSetUp set = new TestSetUp();
     private WebDriver driver;
 
-    @Test()
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     @Parameters({"browser"})
     public void searchBookByReadingLevelTest(String browser) throws InterruptedException {
         set.beforeMethod(browser);

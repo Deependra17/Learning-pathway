@@ -20,6 +20,9 @@ public class FilterSearchLocators {
     private String SelectLanguage;
     private String VerifyAllBooks;
     private String ChooseLanguage;
+    private String SelectAudio;
+    private String ClickOnAudioBook;
+    private String VerifyAudio;
 
     public FilterSearchLocators() {
         try {
@@ -38,6 +41,10 @@ public class FilterSearchLocators {
             this.SelectLanguage = prop.getProperty("SelectLanguage");
             this.VerifyAllBooks = prop.getProperty("VerifyAllBooks");
             this.ChooseLanguage = prop.getProperty("ChooseLanguage");
+            this.SelectAudio = prop.getProperty("SelectAudio");
+            this.ClickOnAudioBook = prop.getProperty("ClickOnAudioBook");
+            this.VerifyAudio = prop.getProperty("VerifyAudio");
+
 
         } catch (
                 IOException ex) {

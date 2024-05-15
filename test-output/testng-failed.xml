@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Search Suite]" guice-stage="DEVELOPMENT">
+<suite thread-count="2" name="Failed suite [Filter Search]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="org.testng.reporters.EmailableReporter2"/>
     <listener class-name="org.testng.reporters.FailedReporter"/>
   </listeners>
-  <test thread-count="5" name="search by language with Chrome(failed)">
+  <test thread-count="2" name="search book by audio(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="search.SearchByLanguageTest">
+      <class name="filtersearch.byaudio.SearchAudioBookTest">
         <methods>
-          <include name="searchBookByLanguage" invocation-numbers="0"/>
+          <include name="searchBookByAudio" invocation-numbers="0"/>
         </methods>
-      </class> <!-- search.SearchByLanguageTest -->
+      </class> <!-- filtersearch.byaudio.SearchAudioBookTest -->
     </classes>
-  </test> <!-- search by language with Chrome(failed) -->
-</suite> <!-- Failed suite [Search Suite] -->
+  </test> <!-- search book by audio(failed) -->
+</suite> <!-- Failed suite [Filter Search] -->

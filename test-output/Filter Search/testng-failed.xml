@@ -5,14 +5,14 @@
     <listener class-name="org.testng.reporters.EmailableReporter2"/>
     <listener class-name="org.testng.reporters.FailedReporter"/>
   </listeners>
-  <test thread-count="2" name="Search by reading level(failed)">
+  <test thread-count="2" name="search book by audio(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="filtersearch.byreadinglevel.SearchBookByReadingLevelTest">
+      <class name="filtersearch.byaudio.SearchAudioBookTest">
         <methods>
-          <include name="searchBookByReadingLevelTest" invocation-numbers="0"/>
+          <include name="searchBookByAudio" invocation-numbers="0"/>
         </methods>
-      </class> <!-- filtersearch.byreadinglevel.SearchBookByReadingLevelTest -->
+      </class> <!-- filtersearch.byaudio.SearchAudioBookTest -->
     </classes>
-  </test> <!-- Search by reading level(failed) -->
+  </test> <!-- search book by audio(failed) -->
 </suite> <!-- Failed suite [Filter Search] -->

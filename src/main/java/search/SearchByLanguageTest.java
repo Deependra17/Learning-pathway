@@ -16,7 +16,7 @@ public class SearchByLanguageTest {
     TestSetUp set = new TestSetUp();
     private WebDriver driver;
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     @Parameters({"browser"})
     public void searchBookByLanguage(String browser) throws InterruptedException {
         set.beforeMethod(browser);

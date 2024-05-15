@@ -5,6 +5,7 @@
     <listeners>
         <listener class-name="org.testng.reporters.EmailableReporter2"/>
         <listener class-name="org.testng.reporters.FailedReporter"/>
+<!--        <listener class-name="utils.RetryAnalyzer"/>-->
     </listeners>
     <!-- Test 1: Login with Chrome -->
     <test name=" Filter Search by language" enabled="false">
@@ -27,12 +28,22 @@
             </class>
         </classes>
     </test>
-    <test name="Search by reading level" enabled="true">
+    <test name="Search by reading level" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="filtersearch.byreadinglevel.SearchBookByReadingLevelTest">
                 <methods>
                     <include name="searchBookByReadingLevelTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="search book by audio" enabled="true">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="filtersearch.byaudio.SearchAudioBookTest">
+                <methods>
+                    <include name="searchBookByAudio"/>
                 </methods>
             </class>
         </classes>

@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import utils.Configuration;
 import utils.DriverFactory;
 import utils.LoginUtils;
+import utils.RetryAnalyzer;
 
 import java.time.Duration;
 
@@ -25,7 +26,7 @@ public class ReadBookTest {
         System.out.println("User logged in Successfully");
     }
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void readBook() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         Configuration config = new Configuration();

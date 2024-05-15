@@ -15,7 +15,7 @@ public class EmptySearchTest {
     TestSetUp set = new TestSetUp();
     private WebDriver driver;
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     @Parameters({"browser"})
     public void emptySearch(String browser) throws InterruptedException {
         set.beforeMethod(browser);

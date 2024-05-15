@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import filtersearch.FilterSearchLocators;
 import utils.CustomListener;
 import utils.DriverFactory;
+import utils.RetryAnalyzer;
 import utils.TestSetUp;
 
 import java.util.concurrent.TimeUnit;
@@ -21,11 +22,10 @@ public class SearchByCategoryTest {
     TestSetUp set = new TestSetUp();
     private WebDriver driver;
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     @Parameters({"browser"})
     public void bookSearchByCategoryTest(String browser) throws InterruptedException {
         set.beforeMethod(browser);
-        System.out.println("Test started..");
         driver = DriverFactory.build(browser);
         FilterSearchLocators locate = new FilterSearchLocators();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);

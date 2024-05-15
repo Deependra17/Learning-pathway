@@ -11,7 +11,6 @@ import utils.*;
 import java.time.Duration;
 
 @Listeners(CustomListener.class)
-@Test(retryAnalyzer = RetryAnalyzer.class)
 public class SqlInjectionTest {
 
     TestSetUp set = new TestSetUp();

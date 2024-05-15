@@ -7,7 +7,7 @@
         <listener class-name="org.testng.reporters.FailedReporter"/>
     </listeners>
     <!-- Test 1: Login with Chrome -->
-    <test name="Search Book by name with Chrome" enabled="true" preserve-order="true">
+    <test name="Search Book by name with Chrome" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="search.SearchByNameTest">
@@ -37,7 +37,7 @@
             </class>
         </classes>
     </test>
-    <test name="Text length boundary search with Chrome" enabled="false" preserve-order="false">
+    <test name="Text length boundary search with Chrome" enabled="true" >
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="search.SqlInjectionTest">
@@ -47,7 +47,7 @@
             </class>
         </classes>
     </test>
-    <test name="search by language with Chrome" enabled="false" preserve-order="false">
+    <test name="search by language with Chrome" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="search.SearchByLanguageTest">

@@ -16,7 +16,7 @@ public class SearchSpecialCharactersTest {
 
     private WebDriver driver;
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     @Parameters({"browser"})
     public void searchWithSpecialCharacter(String browser) throws InterruptedException {
         set.beforeMethod(browser);

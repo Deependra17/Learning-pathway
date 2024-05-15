@@ -9,7 +9,7 @@ import utils.*;
 import java.util.concurrent.TimeUnit;
 
 @Listeners(CustomListener.class)
-public class SearchBookByLanguage {
+public class SearchLocatorsBookByLanguage {
     TestSetUp set = new TestSetUp();
     FilterLocators locate = new FilterLocators();
     private WebDriver driver;

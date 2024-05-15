@@ -10,7 +10,7 @@ import utils.TestSetUp;
 
 import java.util.concurrent.TimeUnit;
 
-public class SearchBookByAudio {
+public class SearchLocatorsBookByAudio {
 
     TestSetUp set = new TestSetUp();
     FilterLocators locate = new FilterLocators();

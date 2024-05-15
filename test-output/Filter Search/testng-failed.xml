@@ -8,11 +8,11 @@
   <test thread-count="2" name="Search by reading level(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="filtersearch.byreadinglevel.SearchBookByReadingLevel">
+      <class name="filtersearch.byreadinglevel.SearchLocatorsBookByReadingLevel">
         <methods>
           <include name="searchBookByReadingLevelTest" invocation-numbers="0"/>
         </methods>
-      </class> <!-- filtersearch.byreadinglevel.SearchBookByReadingLevel -->
+      </class> <!-- filtersearch.byreadinglevel.SearchLocatorsBookByReadingLevel -->
     </classes>
   </test> <!-- Search by reading level(failed) -->
 </suite> <!-- Failed suite [Filter Search] -->

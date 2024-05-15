@@ -5,14 +5,14 @@
     <listener class-name="org.testng.reporters.EmailableReporter2"/>
     <listener class-name="org.testng.reporters.FailedReporter"/>
   </listeners>
-  <test thread-count="5" name="Text length boundary search with Chrome(failed)">
+  <test thread-count="5" name="Search Book by name with Chrome(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="search.SqlInjectionTest">
+      <class name="search.SearchByName">
         <methods>
-          <include name="securityTest" invocation-numbers="0"/>
+          <include name="searchByName" invocation-numbers="0"/>
         </methods>
-      </class> <!-- search.SqlInjectionTest -->
+      </class> <!-- search.SearchByName -->
     </classes>
-  </test> <!-- Text length boundary search with Chrome(failed) -->
+  </test> <!-- Search Book by name with Chrome(failed) -->
 </suite> <!-- Failed suite [Search Suite] -->

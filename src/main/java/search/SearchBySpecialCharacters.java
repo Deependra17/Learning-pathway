@@ -11,7 +11,7 @@ import utils.*;
 import java.time.Duration;
 
 @Listeners(CustomListener.class)
-public class SearchSpecialCharactersTest {
+public class SearchBySpecialCharacters {
     TestSetUp set = new TestSetUp();
 
     private WebDriver driver;

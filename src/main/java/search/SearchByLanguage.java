@@ -12,7 +12,7 @@ import java.time.Duration;
 import java.util.List;
 
 @Listeners(CustomListener.class)
-public class SearchByLanguageTest {
+public class SearchByLanguage {
     TestSetUp set = new TestSetUp();
     private WebDriver driver;
 

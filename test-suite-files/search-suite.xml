@@ -10,17 +10,17 @@
     <test name="Search Book by name with Chrome" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="search.SearchByNameTest">
+            <class name="search.SearchByName">
                 <methods>
                     <include name="searchByName"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="Empty search with Chrome" enabled="false">
+    <test name="Empty search with Chrome" enabled="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="search.EmptySearchTest">
+            <class name="search.EmptySearch">
                 <methods>
                     <include name="emptySearch"/>
                 </methods>
@@ -30,17 +30,17 @@
     <test name="Invalid search with Chrome" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="search.SearchSpecialCharactersTest">
+            <class name="search.SearchBySpecialCharacters">
                 <methods>
                     <include name="searchWithSpecialCharacter"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="Text length boundary search with Chrome" enabled="true" >
+    <test name="Text length boundary search with Chrome" enabled="false" >
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="search.SqlInjectionTest">
+            <class name="search.SqlInjection">
                 <methods>
                     <include name="securityTest"/>
                 </methods>
@@ -50,7 +50,7 @@
     <test name="search by language with Chrome" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="search.SearchByLanguageTest">
+            <class name="search.SearchByLanguage">
                 <methods>
                     <include name="searchBookByLanguage"/>
                 </methods>
@@ -60,7 +60,7 @@
     <test name="Filter search by category" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.bycategory.SearchBookByCategory">
+            <class name="filtersearch.bycategory.SearchLocatorsBookByCategory">
                 <methods>
                     <exclude name="bookSearchByCategoryTest"/>
                 </methods>
@@ -70,7 +70,7 @@
     <test name="Filter search by category with level" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.byreadinglevel.SearchBookByReadingLevel">
+            <class name="filtersearch.byreadinglevel.SearchLocatorsBookByReadingLevel">
                 <methods>
                     <exclude name="searchBookByCategoryWithLevel"/>
                 </methods>

@@ -11,7 +11,7 @@
     <test name=" Filter Search by language" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.bylanguage.SearchBookByLanguage">
+            <class name="filtersearch.bylanguage.SearchLocatorsBookByLanguage">
                 <methods>
                     <include name="bookSearchByLanguage"/>
                 </methods>
@@ -21,7 +21,7 @@
     <test name="Search by category" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.bycategory.SearchBookByCategory">
+            <class name="filtersearch.bycategory.SearchLocatorsBookByCategory">
                 <methods>
                     <include name="bookSearchByCategoryTest"/>
                 </methods>
@@ -31,7 +31,7 @@
     <test name="Search by reading level" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.byreadinglevel.SearchBookByReadingLevel">
+            <class name="filtersearch.byreadinglevel.SearchLocatorsBookByReadingLevel">
                 <methods>
                     <include name="searchBookByReadingLevelTest"/>
                 </methods>
@@ -41,7 +41,7 @@
     <test name="search book by audio" enabled="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.byaudio.SearchBookByAudio">
+            <class name="filtersearch.byaudio.SearchLocatorsBookByAudio">
                 <methods>
                     <include name="searchBookByAudio"/>
                 </methods>

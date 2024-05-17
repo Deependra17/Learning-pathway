@@ -1,6 +1,6 @@
 package filtersearch.bylanguage;
 
-import locators.FilterLocators;
+import locators.FilterSearchLocators;
 import org.openqa.selenium.*;
 import org.testng.annotations.*;
 import utils.*;
@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 @Listeners(CustomListener.class)
 public class SearchLocatorsBookByLanguage {
     TestSetUp set = new TestSetUp();
-    FilterLocators locate = new FilterLocators();
+    FilterSearchLocators locate = new FilterSearchLocators();
     private WebDriver driver;
 
     @Test()

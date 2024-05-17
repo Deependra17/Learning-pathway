@@ -19,7 +19,7 @@ public class EmptySearch {
         set.beforeMethod(browser);
         driver = DriverFactory.build(browser);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        locate.inputField(browser);
+        locate.emptySearch(browser);
         locate.booksName();
         set.tearDown();
     }

@@ -12,7 +12,7 @@ import utils.DriverFactory;
 import java.time.Duration;
 import java.util.List;
 
-public class FilterLocators {
+public class FilterSearchLocators {
     private WebDriver driver;
 
     public void filterSearchButton(String bowser) {

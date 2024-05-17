@@ -1,23 +1,57 @@
 package locators;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 import utils.DriverFactory;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class SearchLocators {
 
     private WebDriver driver;
 
-    public void inputField(String browser) {
+    public void emptySearch(String browser) {
         driver = DriverFactory.build(browser);
         WebElement inputField = driver.findElement(By.xpath("//input"));
         inputField.sendKeys(" ");
         inputField.sendKeys(Keys.ENTER);
+    }
+
+    public void sqlInjection(String browser) throws InterruptedException {
+        driver = DriverFactory.build(browser);
+        WebElement search = driver.findElement(By.xpath("//input"));
+        search.sendKeys("' OR '1'='1");
+        Thread.sleep(2000);
+        search.sendKeys(Keys.ENTER);
+        Thread.sleep(5000);
+
+        try {
+            WebElement errorMessage = driver.findElement(By.xpath("//div[@class='Empty_content__right__text__MS8vL']"));
+        } catch (NoSuchElementException e) {
+            System.out.println(e);
+            List<WebElement> bookElements = driver.findElements(By.xpath("//div[@class='AllBooksGrid_BooksContainer__43ZZb']"));
+
+            if (bookElements.isEmpty()) {
+                System.out.println("No books found");
+            } else {
+                System.out.println("Book Names:");
+                for (WebElement bookElement : bookElements) {
+                    String bookName = bookElement.getText();
+                    System.out.println(bookName);
+                }
+            }
+        }
+    }
+
+    public void specialCharacters(String browser) throws InterruptedException {
+        driver = DriverFactory.build(browser);
+        WebElement search = driver.findElement(By.xpath("//input"));
+        search.sendKeys("@#jdfskh%$");
+        search.sendKeys(Keys.ENTER);
+        Thread.sleep(5000);
+        WebElement errorMessage = driver.findElement(By.xpath("//div[@class='Empty_content__right__text__MS8vL']"));
+        Assert.assertTrue(errorMessage.isDisplayed(), "Error message not displayed");
     }
 
     public void booksName() {
@@ -32,7 +66,7 @@ public class SearchLocators {
     }
 
     public void searchByName(String browser) throws InterruptedException {
-        driver= DriverFactory.build(browser);
+        driver = DriverFactory.build(browser);
         long startTime = System.currentTimeMillis();
 
         WebElement search = driver.findElement(By.xpath("//input"));

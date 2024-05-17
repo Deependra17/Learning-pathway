@@ -1,6 +1,6 @@
 package search;
 
-import filtersearch.FilterSearchLocators;
+import locators.FilterSearchLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -16,12 +16,11 @@ public class SearchByLanguage {
     TestSetUp set = new TestSetUp();
     private WebDriver driver;
 
-    @Test(retryAnalyzer = RetryAnalyzer.class)
+    @Test()
     @Parameters({"browser"})
     public void searchBookByLanguage(String browser) throws InterruptedException {
         set.beforeMethod(browser);
         driver = DriverFactory.build(browser);
-        FilterSearchLocators locate = new FilterSearchLocators();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         utils.Configuration config = new Configuration();
         WebElement search = driver.findElement(By.xpath(config.getInputField()));
@@ -38,7 +37,7 @@ public class SearchByLanguage {
             System.out.println(bookName);
         }
 
-        List<String> allBookNames = BookLanguageUtil.getAllBookNames(driver, locate.getVerifyAllBooks());
+        List<String> allBookNames = BookLanguageUtil.getAllBookNames(driver, "//div[@class='AllBooksGrid_BooksContainer__43ZZb']");
         System.out.println("Names of all books:");
         for (String bookName : allBookNames) {
             System.out.println(bookName);

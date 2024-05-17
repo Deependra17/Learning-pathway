@@ -1,10 +1,7 @@
 package search;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import locators.SearchLocators;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.*;
 import utils.*;
 
@@ -13,22 +10,16 @@ import java.time.Duration;
 @Listeners(CustomListener.class)
 public class SearchBySpecialCharacters {
     TestSetUp set = new TestSetUp();
-
+    SearchLocators locator = new SearchLocators();
     private WebDriver driver;
 
-    @Test(retryAnalyzer = RetryAnalyzer.class)
+    @Test()
     @Parameters({"browser"})
     public void searchWithSpecialCharacter(String browser) throws InterruptedException {
         set.beforeMethod(browser);
         driver = DriverFactory.build(browser);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        utils.Configuration config = new Configuration();
-        WebElement search = driver.findElement(By.xpath(config.getInputField()));
-        search.sendKeys("@#jdfskh%$");
-        search.sendKeys(Keys.ENTER);
-        Thread.sleep(5000);
-        WebElement errorMessage = driver.findElement(By.xpath(config.getErrorMessage()));
-        Assert.assertTrue(errorMessage.isDisplayed(), "Error message not displayed");
+        locator.specialCharacters(browser);
         set.tearDown();
     }
 }

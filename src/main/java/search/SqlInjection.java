@@ -1,10 +1,7 @@
 package search;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import locators.SearchLocators;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.*;
 import utils.*;
 
@@ -14,6 +11,7 @@ import java.time.Duration;
 public class SqlInjection {
 
     TestSetUp set = new TestSetUp();
+    SearchLocators locators= new SearchLocators();
 
     private WebDriver driver;
 
@@ -23,18 +21,7 @@ public class SqlInjection {
         set.beforeMethod(browser);
         driver = DriverFactory.build(browser);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        utils.Configuration config = new Configuration();
-        WebElement search = driver.findElement(By.xpath(config.getInputField()));
-        search.sendKeys("' OR '1'='1");
-        Thread.sleep(2000);
-        search.sendKeys(Keys.ENTER);
-        Thread.sleep(5000);
-        WebElement errorMessage = driver.findElement(By.xpath(config.getErrorMessage()));
-        if (errorMessage.isDisplayed()) {
-            Assert.assertTrue(true, "Error message is displayed");
-        } else {
-            Assert.fail("Error message not displayed");
-        }
+        locators.sqlInjection(browser);
         set.tearDown();
     }
 }

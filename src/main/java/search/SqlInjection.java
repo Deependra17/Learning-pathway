@@ -1,7 +1,7 @@
 package search;
 
 import locators.SearchLocators;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver;   
 import org.testng.annotations.*;
 import utils.*;
 
@@ -11,7 +11,7 @@ import java.time.Duration;
 public class SqlInjection {
 
     TestSetUp set = new TestSetUp();
-    SearchLocators locators= new SearchLocators();
+    SearchLocators locators = new SearchLocators();
 
     private WebDriver driver;
 

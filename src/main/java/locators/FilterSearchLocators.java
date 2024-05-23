@@ -1,11 +1,13 @@
 package locators;
 
+import com.aventstack.extentreports.gherkin.model.ScenarioOutline;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import utils.BookLanguageUtil;
 import utils.DriverFactory;
 
@@ -131,5 +133,43 @@ public class FilterSearchLocators {
         } else {
             System.out.println("This is not audio book");
         }
+    }
+
+    public void selectCountryOfOrigin() throws InterruptedException {
+        WebElement selectCountry = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@aria-labelledby='Select']")));
+        selectCountry.click();
+        Thread.sleep(3000);
+    }
+
+    public void chooseCountry() throws InterruptedException {
+        WebElement country = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@aria-label='Nepal']")));
+        country.click();
+        System.out.println(country.getText());
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,700)");
+        Thread.sleep(3000);
+    }
+
+    public String geExpectedCountry() {
+        String expectedCountry = "Nepal";
+        System.out.println("Expected Country Of origin: " + expectedCountry);
+        return expectedCountry;
+    }
+
+    public void bookClick() throws InterruptedException {
+        WebElement bookCLick = driver.findElement(By.xpath("//div[contains(@class, 'q')][.//img[contains(@alt, 'Uh')]]"));
+        bookCLick.click();
+        Thread.sleep(3000);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,800)");
+    }
+
+    public String getActualCountryOfOrigin() {
+        WebElement actualCountryOfOrigin = driver.findElement(By.xpath("//span[normalize-space()='Nepal']"));
+        String actualCountry = actualCountryOfOrigin.getText();
+        System.out.println("Actual Country of origin: " + actualCountry);
+        return actualCountry;
     }
 }

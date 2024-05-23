@@ -60,7 +60,7 @@
     <test name="Filter search by category" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.bycategory.SearchLocatorsBookByCategory">
+            <class name="filtersearch.bycategory.SearchBookByCategory">
                 <methods>
                     <exclude name="bookSearchByCategoryTest"/>
                 </methods>
@@ -70,7 +70,7 @@
     <test name="Filter search by category with level" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.byreadinglevel.SearchLocatorsBookByReadingLevel">
+            <class name="filtersearch.byreadinglevel.SearchBookByReadingLevel">
                 <methods>
                     <exclude name="searchBookByCategoryWithLevel"/>
                 </methods>

@@ -11,7 +11,7 @@ import utils.*;
 import java.util.concurrent.TimeUnit;
 
 @Listeners(CustomListener.class)
-public class SearchLocatorsBookByCategory {
+public class SearchBookByCategory {
     TestSetUp set = new TestSetUp();
     FilterSearchLocators locate = new FilterSearchLocators();
     private WebDriver driver;

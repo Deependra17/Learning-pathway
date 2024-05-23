@@ -13,6 +13,7 @@ import utils.DriverFactory;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Random;
 
 public class FilterSearchLocators {
     private WebDriver driver;
@@ -135,39 +136,81 @@ public class FilterSearchLocators {
         }
     }
 
-    public void selectCountryOfOrigin() throws InterruptedException {
-        WebElement selectCountry = new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@aria-labelledby='Select']")));
-        selectCountry.click();
-        Thread.sleep(3000);
-    }
 
     public void chooseCountry() throws InterruptedException {
-        WebElement country = new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@aria-label='Nepal']")));
-        country.click();
-        System.out.println(country.getText());
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,700)");
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement countryDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@aria-labelledby='Select']")));
+        countryDropdown.click();
+
+    }
+
+    public void selectCountry() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        List<WebElement> countries = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='ant-modal-body'][.//*[@id='language_modal']]")));
+
+        if (!countries.isEmpty()) {
+            Random random = new Random();
+            int randomIndex = random.nextInt(countries.size());
+            WebElement selectedCountry = countries.get(randomIndex);
+            selectedCountry.click();
+            System.out.println("Selected Country: " + selectedCountry.getText());
+        } else {
+            System.out.println("No countries found in the list.");
+        }
         Thread.sleep(3000);
     }
 
-    public String geExpectedCountry() {
-        String expectedCountry = "Nepal";
-        System.out.println("Expected Country Of origin: " + expectedCountry);
+    public String expectedCountry() {
+        WebElement country = driver.findElement(By.xpath("//div[@aria-labelledby='Select']//div[@class='FilterModal_dropDown__left__UZv4s']"));
+        String expectedCountry = country.getText();
+        System.out.println("Expected Country: " + expectedCountry);
         return expectedCountry;
     }
 
     public void bookClick() throws InterruptedException {
-        WebElement bookCLick = driver.findElement(By.xpath("//div[contains(@class, 'q')][.//img[contains(@alt, 'Uh')]]"));
-        bookCLick.click();
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//
+//        // Wait until the book container is visible
+//        WebElement bookContainer = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='AllBooksGrid_BooksContainer__43ZZb']")));
+//
+//        // Find all book elements within the container
+//        List<WebElement> books = bookContainer.findElements(By.xpath("//div[@class='AllBooksGrid_BooksContainer__43ZZb']"));
+//
+//        // Debug print to verify the number of books found
+//        System.out.println("Number of books found: " + books.size());
+//
+//        if (books.isEmpty()) {
+//            System.out.println("No books found in the container.");
+//            return;
+//        }
+//
+//        // Select a random book from the list
+//        Random random = new Random();
+//        int randomIndex = random.nextInt(books.size());
+//        WebElement selectedBook = books.get(randomIndex);
+//
+//        // Scroll to the selected book
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", selectedBook);
+//
+//        // Ensure the book is clickable
+//        wait.until(ExpectedConditions.elementToBeClickable(selectedBook));
+//
+//        // Debug print to verify the selected book
+//        System.out.println("Selected book index: " + randomIndex);
+//
+//        // Click the selected book
+//        selectedBook.click();
+
+        WebElement clickOnBook = driver.findElement(By.xpath("//div[contains(@class, 'q')][.//img[@alt='Different Level']]"));
+        clickOnBook.click();
+
+        // Optional: Wait for 3 seconds to observe the click action
         Thread.sleep(3000);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,800)");
     }
 
     public String getActualCountryOfOrigin() {
-        WebElement actualCountryOfOrigin = driver.findElement(By.xpath("//span[normalize-space()='Nepal']"));
+        WebElement actualCountryOfOrigin = driver.findElement(By.xpath("//span[normalize-space()='Algeria']"));
         String actualCountry = actualCountryOfOrigin.getText();
         System.out.println("Actual Country of origin: " + actualCountry);
         return actualCountry;

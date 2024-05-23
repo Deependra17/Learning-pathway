@@ -19,9 +19,9 @@ public class SearchByCountryOfOriginTest {
         set.beforeMethod(browser);
         driver = DriverFactory.build(browser);
         locate.filterSearchButton(browser);
-        locate.selectCountryOfOrigin();
         locate.chooseCountry();
-        String expectedCountryOfOrigin = locate.geExpectedCountry();
+        locate.selectCountry();
+        String expectedCountryOfOrigin = locate.expectedCountry();
         locate.showBooksButton();
         locate.bookClick();
         String actualCountryOfOrigin = locate.getActualCountryOfOrigin();

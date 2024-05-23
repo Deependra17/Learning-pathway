@@ -7,7 +7,7 @@
         <listener class-name="org.testng.reporters.FailedReporter"/>
     </listeners>
     <!-- Test 1: Login with Chrome -->
-    <test name="ValidLogin with Chrome" enabled="false">
+    <test name="ValidLogin with Chrome" enabled="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="login.ValidLoginTest">
@@ -17,7 +17,7 @@
             </class>
         </classes>
     </test>
-    <test name="InvalidLogin with Chrome" parallel="true" enabled="true">
+    <test name="InvalidLogin with Chrome" parallel="true" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="login.InvalidLoginTest">

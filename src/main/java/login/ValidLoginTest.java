@@ -44,6 +44,4 @@ public class ValidLoginTest {
             set.tearDown();
         }
     }
-
-    // No need for @AfterMethod annotation since WebDriver session is closed in the test method itself
 }

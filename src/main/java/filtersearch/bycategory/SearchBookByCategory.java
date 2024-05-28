@@ -6,7 +6,9 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import utils.*;
+import utils.CustomListener;
+import utils.DriverFactory;
+import utils.TestSetUp;
 
 import java.util.concurrent.TimeUnit;
 

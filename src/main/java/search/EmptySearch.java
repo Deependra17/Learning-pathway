@@ -3,7 +3,9 @@ package search;
 import locators.SearchLocators;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-import utils.*;
+import utils.CustomListener;
+import utils.DriverFactory;
+import utils.TestSetUp;
 
 import java.time.Duration;
 

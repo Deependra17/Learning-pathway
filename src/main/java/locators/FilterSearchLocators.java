@@ -1,16 +1,17 @@
 package locators;
 
-import com.aventstack.extentreports.gherkin.model.ScenarioOutline;
+import org.knowm.xchart.style.theme.Theme;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import org.testng.collections.Lists;
 import utils.BookLanguageUtil;
 import utils.DriverFactory;
 
+import java.nio.channels.WritableByteChannel;
 import java.time.Duration;
 import java.util.List;
 import java.util.Random;
@@ -110,11 +111,6 @@ public class FilterSearchLocators {
         System.out.println("All book names are in Nepali.");
     }
 
-//    public void chooseLanguage() {
-//        WebElement chooseLanguage = driver.findElement(By.xpath("//div[@aria-label='\\u0928\\u0947\\u092A\\u093E\\u0932\\u0940']"));
-//        chooseLanguage.click();
-//    }
-
     public void selectAudio() {
         WebElement selectAudio = driver.findElement(By.xpath("//button[@aria-label='Select or unselect audio']"));
         selectAudio.click();
@@ -137,24 +133,27 @@ public class FilterSearchLocators {
     }
 
 
-    public void chooseCountry() throws InterruptedException {
+    public void ClickToChooseCountry() throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement countryDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@aria-labelledby='Select']")));
         countryDropdown.click();
-
     }
 
-    public void selectCountry() throws InterruptedException {
+    public void selectRandomCountry() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         List<WebElement> countries = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='ant-modal-body'][.//*[@id='language_modal']]")));
 
         if (!countries.isEmpty()) {
+            System.out.println("List of countries: ");
+            for (WebElement country : countries) {
+                System.out.println(country.getText());
+            }
             Random random = new Random();
             int randomIndex = random.nextInt(countries.size());
             WebElement selectedCountry = countries.get(randomIndex);
             selectedCountry.click();
-            System.out.println("Selected Country: " + selectedCountry.getText());
+//            System.out.println("Selected Country: " + selectedCountry.getText());
         } else {
             System.out.println("No countries found in the list.");
         }
@@ -168,45 +167,14 @@ public class FilterSearchLocators {
         return expectedCountry;
     }
 
-    public void bookClick() throws InterruptedException {
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//
-//        // Wait until the book container is visible
-//        WebElement bookContainer = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='AllBooksGrid_BooksContainer__43ZZb']")));
-//
-//        // Find all book elements within the container
-//        List<WebElement> books = bookContainer.findElements(By.xpath("//div[@class='AllBooksGrid_BooksContainer__43ZZb']"));
-//
-//        // Debug print to verify the number of books found
-//        System.out.println("Number of books found: " + books.size());
-//
-//        if (books.isEmpty()) {
-//            System.out.println("No books found in the container.");
-//            return;
-//        }
-//
-//        // Select a random book from the list
-//        Random random = new Random();
-//        int randomIndex = random.nextInt(books.size());
-//        WebElement selectedBook = books.get(randomIndex);
-//
-//        // Scroll to the selected book
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", selectedBook);
-//
-//        // Ensure the book is clickable
-//        wait.until(ExpectedConditions.elementToBeClickable(selectedBook));
-//
-//        // Debug print to verify the selected book
-//        System.out.println("Selected book index: " + randomIndex);
-//
-//        // Click the selected book
-//        selectedBook.click();
+    public void clickOnRandomBook() throws InterruptedException {
 
         WebElement clickOnBook = driver.findElement(By.xpath("//div[contains(@class, 'q')][.//img[@alt='Different Level']]"));
         clickOnBook.click();
 
         // Optional: Wait for 3 seconds to observe the click action
         Thread.sleep(3000);
+
     }
 
     public String getActualCountryOfOrigin() {

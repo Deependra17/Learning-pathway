@@ -19,11 +19,11 @@ public class SearchByCountryOfOriginTest {
         set.beforeMethod(browser);
         driver = DriverFactory.build(browser);
         locate.filterSearchButton(browser);
-        locate.chooseCountry();
-        locate.selectCountry();
+        locate.ClickToChooseCountry();
+        locate.selectRandomCountry();
         String expectedCountryOfOrigin = locate.expectedCountry();
         locate.showBooksButton();
-        locate.bookClick();
+        locate.clickOnRandomBook();
         String actualCountryOfOrigin = locate.getActualCountryOfOrigin();
 
         Assert.assertEquals(actualCountryOfOrigin, expectedCountryOfOrigin, "Country of origin does not match");

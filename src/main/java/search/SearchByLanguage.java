@@ -1,6 +1,5 @@
 package search;
 
-import locators.FilterSearchLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

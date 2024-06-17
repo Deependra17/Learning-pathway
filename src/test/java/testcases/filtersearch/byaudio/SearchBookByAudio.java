@@ -1,4 +1,4 @@
-package filtersearch.byaudio;
+package testcases.filtersearch.byaudio;
 
 import locators.FilterSearchLocators;
 import org.openqa.selenium.WebDriver;

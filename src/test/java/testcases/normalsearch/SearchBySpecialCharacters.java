@@ -1,4 +1,4 @@
-package search;
+package testcases.normalsearch;
 
 import locators.SearchLocators;
 import org.openqa.selenium.WebDriver;

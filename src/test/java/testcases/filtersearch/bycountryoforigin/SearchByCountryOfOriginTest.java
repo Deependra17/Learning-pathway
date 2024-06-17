@@ -1,4 +1,4 @@
-package filtersearch.bycountryoforigin;
+package testcases.filtersearch.bycountryoforigin;
 
 import locators.FilterSearchLocators;
 import org.openqa.selenium.WebDriver;

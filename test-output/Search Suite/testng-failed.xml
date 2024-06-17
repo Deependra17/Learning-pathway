@@ -8,7 +8,7 @@
   <test thread-count="5" parallel="tests" name="Search sql query(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="search.SqlInjection">
+      <class name="testcases.normalsearch.SqlInjection">
         <methods>
           <include name="securityTest" invocation-numbers="0"/>
         </methods>

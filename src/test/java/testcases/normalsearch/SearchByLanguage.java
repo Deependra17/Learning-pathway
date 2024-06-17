@@ -1,4 +1,4 @@
-package search;
+package testcases.normalsearch;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

@@ -11,17 +11,17 @@
     <test name=" Filter Search by language" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.bylanguage.SearchBookByLanguage">
+            <class name="testcases.bycategory.filtersearch.bylanguage.SearchBookByLanguage">
                 <methods>
                     <include name="bookSearchByLanguage"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="Search by category" enabled="false">
+    <test name="Search by category" enabled="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.bycategory.SearchBookByCategory">
+            <class name="bycategory.SearchBookByCategory">
                 <methods>
                     <include name="bookSearchByCategoryTest"/>
                 </methods>
@@ -31,7 +31,7 @@
     <test name="Search by reading level" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.byreadinglevel.SearchBookByReadingLevel">
+            <class name="testcases.bycategory.filtersearch.byreadinglevel.SearchBookByReadingLevel">
                 <methods>
                     <include name="searchBookByReadingLevelTest"/>
                 </methods>
@@ -41,17 +41,17 @@
     <test name="search book by audio" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.byaudio.SearchBookByAudio">
+            <class name="testcases.bycategory.filtersearch.byaudio.SearchBookByAudio">
                 <methods>
                     <include name="searchBookByAudio"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="search book by country of origin" enabled="true">
+    <test name="search book by country of origin" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="filtersearch.bycountryoforigin.SearchByCountryOfOriginTest">
+            <class name="testcases.bycategory.filtersearch.bycountryoforigin.SearchByCountryOfOriginTest">
                 <methods>
                     <include name="searchBookByCountryOfOrigin"/>
                 </methods>

@@ -1,26 +1,27 @@
 package locators;
 
-import org.knowm.xchart.style.theme.Theme;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.collections.Lists;
 import utils.BookLanguageUtil;
 import utils.DriverFactory;
+import utils.WaitClass;
 
-import java.nio.channels.WritableByteChannel;
 import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 
 public class FilterSearchLocators {
     private WebDriver driver;
+//    WaitClass wait = new WaitClass();
 
     public void filterSearchButton(String bowser) {
+//        wait.useImplicitlyWait();
         driver = DriverFactory.build(bowser);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         WebElement filterSearchButton = driver.findElement(By.xpath("//div[@class='Home_searchBarContent__hQhab']//div[2]"));
         filterSearchButton.click();
     }
@@ -172,7 +173,6 @@ public class FilterSearchLocators {
         WebElement clickOnBook = driver.findElement(By.xpath("//div[contains(@class, 'q')][.//img[@alt='Different Level']]"));
         clickOnBook.click();
 
-        // Optional: Wait for 3 seconds to observe the click action
         Thread.sleep(3000);
 
     }

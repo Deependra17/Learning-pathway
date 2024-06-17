@@ -10,7 +10,7 @@ import java.awt.*;
 import java.time.Duration;
 
 public class AlertHandling {
-    //types
+    //types...
     //simple alerts
     //prompt alerts and
     //confirmation alerts

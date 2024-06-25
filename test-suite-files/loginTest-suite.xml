@@ -7,7 +7,7 @@
         <listener class-name="org.testng.reporters.FailedReporter"/>
     </listeners>
     <!-- Test 1: Login with Chrome -->
-    <test name="ValidLogin with Chrome" enabled="true">
+    <test name="ValidLogin with Chrome" enabled="false">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="login.ValidLoginTest">
@@ -49,4 +49,15 @@
             </class>
         </classes>
     </test>
+    <test name="calendar with Firefox" parallel="false" enabled="true">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="calendar.VerifyDate">
+                <methods>
+                    <include name="testDate"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
 </suite>

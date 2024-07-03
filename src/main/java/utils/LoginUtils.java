@@ -1,6 +1,6 @@
 package utils;
 
-import locators.LoginLocators;
+import pages.LoginPage;
 import lombok.Getter;
 import org.openqa.selenium.*;
 
@@ -18,7 +18,7 @@ public class LoginUtils {
     }
 
     public void login() throws InterruptedException {
-        LoginLocators locate = new LoginLocators(driver);
+        LoginPage locate = new LoginPage(driver);
         locate.waitingTIme();
         locate.getUrl();
         locate.clickForLogin();

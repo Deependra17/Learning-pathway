@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- Login Suite -->
+<suite name="Login Suite" parallel="tests">
+    <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter2"/>
+        <listener class-name="org.testng.reporters.FailedReporter"/>
+    </listeners>
+    <!--    Calendar Test with chrome-->
+    <test name="calendar with Firefox" parallel="false" enabled="true">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="calendar.VerifyCurrentDate">
+                <methods>
+                    <include name="testCurrentDate"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

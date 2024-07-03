@@ -14,7 +14,7 @@ import java.time.Duration;
 import java.util.List;
 
 @Listeners(CustomListener.class)
-public class ReadPathway {
+public class ReadPathwayTest {
     private WebDriver driver;
     LoginUtils loginUtils;
 

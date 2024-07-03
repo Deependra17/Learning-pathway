@@ -1,4 +1,4 @@
-package locators;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -8,15 +8,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.BookLanguageUtil;
 import utils.DriverFactory;
-import utils.WaitClass;
 
 import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 
-public class FilterSearchLocators {
+public class FilterSearchPage {
     private WebDriver driver;
-//    WaitClass wait = new WaitClass();
 
     public void filterSearchButton(String bowser) {
 //        wait.useImplicitlyWait();
@@ -134,7 +132,7 @@ public class FilterSearchLocators {
     }
 
 
-    public void ClickToChooseCountry() throws InterruptedException {
+    public void ClickToChooseCountry() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement countryDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@aria-labelledby='Select']")));

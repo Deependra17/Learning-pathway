@@ -1,4 +1,4 @@
-package locators;
+package pages;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,12 +8,12 @@ import utils.Credentials;
 import java.time.Duration;
 import java.util.Set;
 
-public class LoginLocators {
+public class LoginPage {
     Credentials cred = new Credentials();
     private WebDriver driver;
     private String parentHandle;
 
-    public LoginLocators(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 

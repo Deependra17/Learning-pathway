@@ -8,11 +8,11 @@
   <test thread-count="5" name="calendar with Firefox(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="calendar.VerifyDate">
+      <class name="calendar.VerifyCurrentDate">
         <methods>
-          <include name="testDate" invocation-numbers="0"/>
+          <include name="testCurrentDate" invocation-numbers="0"/>
         </methods>
-      </class> <!-- calendar.VerifyDate -->
+      </class> <!-- calendar.VerifyCurrentDate -->
     </classes>
   </test> <!-- calendar with Firefox(failed) -->
 </suite> <!-- Failed suite [Login Suite] -->

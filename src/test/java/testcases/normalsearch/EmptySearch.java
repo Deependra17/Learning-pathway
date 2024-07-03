@@ -1,6 +1,6 @@
 package testcases.normalsearch;
 
-import locators.SearchLocators;
+import pages.NormalSearchPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import utils.CustomListener;
@@ -11,7 +11,7 @@ import java.time.Duration;
 
 @Listeners(CustomListener.class)
 public class EmptySearch {
-    SearchLocators locate = new SearchLocators();
+    NormalSearchPage locate = new NormalSearchPage();
     TestSetUp set = new TestSetUp();
     private WebDriver driver;
 

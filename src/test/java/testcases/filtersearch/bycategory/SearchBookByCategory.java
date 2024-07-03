@@ -1,6 +1,6 @@
 package testcases.filtersearch.bycategory;
 
-import locators.FilterSearchLocators;
+import pages.FilterSearchPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 @Listeners(CustomListener.class)
 public class SearchBookByCategory {
     TestSetUp set = new TestSetUp();
-    FilterSearchLocators locate = new FilterSearchLocators();
+    FilterSearchPage locate = new FilterSearchPage();
     private WebDriver driver;
 
     @Test()

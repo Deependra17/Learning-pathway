@@ -49,15 +49,4 @@
             </class>
         </classes>
     </test>
-    <test name="calendar with Firefox" parallel="false" enabled="true">
-        <parameter name="browser" value="Chrome"/>
-        <classes>
-            <class name="calendar.VerifyDate">
-                <methods>
-                    <include name="testDate"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-
 </suite>

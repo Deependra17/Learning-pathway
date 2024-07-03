@@ -1,4 +1,4 @@
-package locators;
+package pages;
 
 import org.openqa.selenium.*;
 import org.testng.Assert;
@@ -7,7 +7,7 @@ import utils.DriverFactory;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class SearchLocators {
+public class NormalSearchPage {
 
     private WebDriver driver;
 

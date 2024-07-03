@@ -1,6 +1,9 @@
 package org.pathway;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -54,14 +57,8 @@ public class ReadBookTest {
                     System.out.println("Next page arrow is not displayed");
                 }
 
-//            if (nextPageArrow != null) {
-//                nextPageArrow.click();
-//            } else {
-//                break;
-//            }
                 nextPageArrow.click();
             } catch (StaleElementReferenceException e) {
-//                System.out.println("Error: " + e);
                 break;
             }
         }

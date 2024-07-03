@@ -1,6 +1,6 @@
 package testcases.normalsearch;
 
-import locators.SearchLocators;
+import pages.NormalSearchPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import utils.CustomListener;
@@ -13,7 +13,7 @@ import java.time.Duration;
 public class SqlInjection {
 
     TestSetUp set = new TestSetUp();
-    SearchLocators locators = new SearchLocators();
+    NormalSearchPage locators = new NormalSearchPage();
 
     private WebDriver driver;
 

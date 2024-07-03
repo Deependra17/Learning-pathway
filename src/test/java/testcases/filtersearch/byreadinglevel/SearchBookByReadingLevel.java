@@ -1,6 +1,6 @@
 package testcases.filtersearch.byreadinglevel;
 
-import locators.FilterSearchLocators;
+import pages.FilterSearchPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SearchBookByReadingLevel {
     TestSetUp set = new TestSetUp();
-    FilterSearchLocators locate = new FilterSearchLocators();
+    FilterSearchPage locate = new FilterSearchPage();
     private WebDriver driver;
 
     @Test()

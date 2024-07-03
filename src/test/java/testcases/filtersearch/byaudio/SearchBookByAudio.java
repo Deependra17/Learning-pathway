@@ -1,6 +1,6 @@
 package testcases.filtersearch.byaudio;
 
-import locators.FilterSearchLocators;
+import pages.FilterSearchPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class SearchBookByAudio {
 
     TestSetUp set = new TestSetUp();
-    FilterSearchLocators locate = new FilterSearchLocators();
+    FilterSearchPage locate = new FilterSearchPage();
     private WebDriver driver;
     @Test(retryAnalyzer = RetryAnalyzer.class)
     @Parameters({"browser"})

@@ -5,14 +5,16 @@
     <listener class-name="org.testng.reporters.EmailableReporter2"/>
     <listener class-name="org.testng.reporters.FailedReporter"/>
   </listeners>
-  <test thread-count="5" parallel="tests" name="Search sql query(failed)">
-    <parameter name="browser" value="Chrome"/>
+  <test thread-count="5" parallel="tests" name="search in multiple windows(failed)">
+    <parameter name="browser" value="Firefox"/>
     <classes>
-      <class name="testcases.normalsearch.SqlInjection">
+      <class name="searchindifferentwindows.SearchUsingDifferentMultipleWindows">
         <methods>
-          <include name="securityTest" invocation-numbers="0"/>
+          <include name="beforeMethod"/>
+          <include name="searchBookUsingMultipleWindows"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- search.SqlInjection -->
+      </class> <!-- searchindifferentwindows.SearchUsingDifferentMultipleWindows -->
     </classes>
-  </test> <!-- Search sql query(failed) -->
+  </test> <!-- search in multiple windows(failed) -->
 </suite> <!-- Failed suite [Search Suite] -->

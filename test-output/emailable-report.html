@@ -9,62 +9,10 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Search Suite</th></tr>
-<tr><td><a href="#t0">search in multiple windows</a></td><td class="num">0</td><td class="num attn">1</td><td class="num">0</td><td class="num">0</td><td class="num">22,698</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Search Book by name with Chrome</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">43,549</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Search Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">search in multiple windows &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">searchindifferentwindows.SearchUsingDifferentMultipleWindows</td><td><a href="#m0">beforeMethod</a></td><td rowspan="1">1721121097613</td><td rowspan="1">22658</td></tr><tr><th colspan="4">search in multiple windows &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="1">searchindifferentwindows.SearchUsingDifferentMultipleWindows</td><td><a href="#m1">tearDown</a></td><td rowspan="1">1721121120282</td><td rowspan="1">0</td></tr><tr><th colspan="4">search in multiple windows &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="1">searchindifferentwindows.SearchUsingDifferentMultipleWindows</td><td><a href="#m2">searchBookUsingMultipleWindows</a></td><td rowspan="1">1721121120281</td><td rowspan="1">0</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Search Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Search Book by name with Chrome &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">testcases.normalsearch.SearchByName</td><td><a href="#m0">searchByName</a></td><td rowspan="1">1731396660004</td><td rowspan="1">43522</td></tr></tbody>
 </table>
-<h2>search in multiple windows</h2><h3 id="m0">searchindifferentwindows.SearchUsingDifferentMultipleWindows#beforeMethod</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>Firefox</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementNotInteractableException: Element &lt;input class=&quot;whsOnd zHQkBf&quot; name=&quot;Passwd&quot; type=&quot;password&quot;&gt; is not reachable by keyboard
-Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
-System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.8.0-76060800daily20240311-generic&apos;, java.version: &apos;19.0.2&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [5d74255d-bc6d-4873-8978-ab21aefb678a, sendKeysToElement {id=2d6acbe9-348d-4400-b072-891ae1fec20c, value=[Ljava.lang.CharSequence;@677e06e2}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240704121409, moz:debuggerAddress: 127.0.0.1:11164, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 6.8.0-76060800daily20240311..., moz:processID: 1239084, moz:profile: /tmp/rust_mozprofilel6iPOP, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://127.0.0.1:11164/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86...}
-Element: [[FirefoxDriver: firefox on linux (5d74255d-bc6d-4873-8978-ab21aefb678a)] -&gt; xpath: //*[@id=&quot;password&quot;]/div[1]/div/div[1]/input]
-Session ID: 5d74255d-bc6d-4873-8978-ab21aefb678a
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:111)
-	at pages.LoginPage.enterPassword(LoginPage.java:75)
-	at utils.LoginUtils.login(LoginUtils.java:28)
-	at searchindifferentwindows.SearchUsingDifferentMultipleWindows.beforeMethod(SearchUsingDifferentMultipleWindows.java:29)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1589)
-... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">searchindifferentwindows.SearchUsingDifferentMultipleWindows#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">searchindifferentwindows.SearchUsingDifferentMultipleWindows#searchBookUsingMultipleWindows</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementNotInteractableException: Element &lt;input class=&quot;whsOnd zHQkBf&quot; name=&quot;Passwd&quot; type=&quot;password&quot;&gt; is not reachable by keyboard
-Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
-System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.8.0-76060800daily20240311-generic&apos;, java.version: &apos;19.0.2&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [5d74255d-bc6d-4873-8978-ab21aefb678a, sendKeysToElement {id=2d6acbe9-348d-4400-b072-891ae1fec20c, value=[Ljava.lang.CharSequence;@677e06e2}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240704121409, moz:debuggerAddress: 127.0.0.1:11164, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 6.8.0-76060800daily20240311..., moz:processID: 1239084, moz:profile: /tmp/rust_mozprofilel6iPOP, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://127.0.0.1:11164/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86...}
-Element: [[FirefoxDriver: firefox on linux (5d74255d-bc6d-4873-8978-ab21aefb678a)] -&gt; xpath: //*[@id=&quot;password&quot;]/div[1]/div/div[1]/input]
-Session ID: 5d74255d-bc6d-4873-8978-ab21aefb678a
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:111)
-	at pages.LoginPage.enterPassword(LoginPage.java:75)
-	at utils.LoginUtils.login(LoginUtils.java:28)
-	at searchindifferentwindows.SearchUsingDifferentMultipleWindows.beforeMethod(SearchUsingDifferentMultipleWindows.java:29)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1589)
-... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Search Book by name with Chrome</h2><h3 id="m0">testcases.normalsearch.SearchByName#searchByName</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>Chrome</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

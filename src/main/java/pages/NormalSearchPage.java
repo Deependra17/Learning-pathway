@@ -110,7 +110,7 @@ public class NormalSearchPage {
 
     public void verifyBookName() throws InterruptedException {
         String expectedName = "My Body";
-        String actualName = driver.findElement(By.xpath(" /html/body/div/div/div[3]/div/div[7]/div[2]")).getText();
+        String actualName = driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[3]/div/div[2]/div[2]")).getText();
         Assert.assertEquals(actualName, expectedName, "Book name does not match");
         Thread.sleep(5000);
     }

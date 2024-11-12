@@ -7,7 +7,7 @@
         <listener class-name="org.testng.reporters.FailedReporter"/>
     </listeners>
     <!-- Test 1: Login with Chrome -->
-    <test name="Search Book by name with Chrome" enabled="false">
+    <test name="Search Book by name with Chrome" enabled="true">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="testcases.normalsearch.SearchByName">

@@ -124,28 +124,4 @@ public class SearchUsingDifferentMultipleWindows {
             window.quit();
         }
     }
-
-    @Test
-    public void searchBookByLanguageInMultipleWindows() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        int numberOfWindows = 3;
-        String searchInputField = "//*[@id=\"__next\"]/div/main/div[2]/div[1]/span/span/input";
-        WebDriver[] windows = new WebDriver[numberOfWindows];
-
-        List<List<String>> allSearchResults = new ArrayList<>();
-
-        for (int i = 0; i < numberOfWindows; i++) {
-            windows[i] = driver.switchTo().newWindow(WindowType.TAB);
-            windows[i].get(url);
-            WebElement chooseLanguage = driver.findElement(By.xpath("//*[@id=\"__next\"]/div/header/div[3]/button"));
-            chooseLanguage.click();
-            Thread.sleep(5000);
-            WebElement nepali = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[2]/div[1]/div/div[2]/div[1]"));
-            nepali.click();
-            WebElement okButton = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[2]/div[1]/div/div[3]/button"));
-            okButton.click();
-            Thread.sleep(10000);
-            System.out.println(nepali.getText());
-        }
-    }
 }

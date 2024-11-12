@@ -5,16 +5,14 @@
     <listener class-name="org.testng.reporters.EmailableReporter2"/>
     <listener class-name="org.testng.reporters.FailedReporter"/>
   </listeners>
-  <test thread-count="5" parallel="tests" name="search in multiple windows(failed)">
-    <parameter name="browser" value="Firefox"/>
+  <test thread-count="5" parallel="tests" name="Search Book by name with Chrome(failed)">
+    <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="searchindifferentwindows.SearchUsingDifferentMultipleWindows">
+      <class name="testcases.normalsearch.SearchByName">
         <methods>
-          <include name="beforeMethod"/>
-          <include name="searchBookUsingMultipleWindows"/>
-          <include name="tearDown"/>
+          <include name="searchByName" invocation-numbers="0"/>
         </methods>
-      </class> <!-- searchindifferentwindows.SearchUsingDifferentMultipleWindows -->
+      </class> <!-- testcases.normalsearch.SearchByName -->
     </classes>
-  </test> <!-- search in multiple windows(failed) -->
+  </test> <!-- Search Book by name with Chrome(failed) -->
 </suite> <!-- Failed suite [Search Suite] -->

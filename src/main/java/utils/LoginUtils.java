@@ -28,10 +28,9 @@ public class LoginUtils {
         locate.enterPassword();
         locate.chooseProfile();
         locate.clickOnHomeButton();
-
     }
 
-    public void loginWithInvalidCredentials() throws InterruptedException {
+    public void loginWithValidCredentials() throws InterruptedException {
         Configuration config = new Configuration();
         Credentials cred = new Credentials();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));

@@ -20,7 +20,6 @@ public class EmptySearch {
     public void emptySearch(String browser) throws InterruptedException {
         set.beforeMethod(browser);
         driver = DriverFactory.build(browser);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         locate.emptySearch(browser);
         locate.booksName();
         set.tearDown();
